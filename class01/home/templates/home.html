@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+<body class="flex items-center justify-center">
+    
+    {% block content %}
+
+        <div class="relative flex items-center justify-center w-1/3 h-40 mx-auto border border-red-700 rounded-xl top-10">
+            <ul>
+                {% for topico in topicos %}
+                    <li><a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

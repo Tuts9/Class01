@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+<body class="flex items-center justify-center">
+    
+    {% block content %}
+
+        <h1>{{ topico.nome_topico }}</h1>
+
+        <p>{{ topico.introducao }}</p>
+
+        <img src="{{ topico.imagem.url }}" alt="{{ topico.nome_topico }}">
+
+        <p><a href="{{ topico.fonte }}">Veja mais</a></p>
+        
+        <p>{{ topico.texto_ferramenta }}</p>
+        
+        <p><a href="{{ topico.fonte_ferramenta }}">Veja mais</a></p>
+
+        {% for ferramenta in topico.ferramenta_set.all %}
+            <div class="mb-4">
+                <h3>{{ ferramenta.nome_ferramenta }}</h3>
+
+                <img src="{{ ferramenta.imagem_ferramenta.url }}" alt="{{ ferramenta.nome_ferramenta }}">
+
+                <p>{{ ferramenta.informacao_ferramenta }}</p>
+
+                <p><a href="{{ ferramenta.link_ferramenta }}">Veja mais</a></p>
+
+            </div>
+
+        {% endfor %}
+
+    {% endblock %}
+
+</body>
+</html>
