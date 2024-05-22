@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Topico(models.Model):
+    icon_topico = models.ImageField(upload_to='img/icons/', null=True, blank=True)
     nome_topico = models.CharField(max_length=50)
     introducao = models.TextField()
     imagem = models.ImageField(upload_to='img/')

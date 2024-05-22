@@ -11,27 +11,27 @@
     
     {% block content %}
 
-        <h1>{{ topico.nome_topico }}</h1>
+        <h1 class="text-5xl font-bold text-center mb-9">{{ topico.nome_topico }}</h1>
 
-        <p>{{ topico.introducao }}</p>
+        <p class="w-4/5 mx-auto mb-4">{{ topico.introducao }}</p>
 
-        <img src="{{ topico.imagem.url }}" alt="{{ topico.nome_topico }}">
+        <img class="w-1/2 mx-auto mb-6" src="{{ topico.imagem.url }}" alt="{{ topico.nome_topico }}">
 
-        <p><a href="{{ topico.fonte }}">Veja mais</a></p>
+        <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ topico.fonte }}">Veja mais sobre {{ topico.nome_topico }}</a></p>
         
-        <p>{{ topico.texto_ferramenta }}</p>
+        <p class="w-4/5 mx-auto mb-4">{{ topico.texto_ferramenta }}</p>
         
-        <p><a href="{{ topico.fonte_ferramenta }}">Veja mais</a></p>
+        <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ topico.fonte_ferramenta }}">Veja mais sobre as principais ferramentas</a></p>
 
         {% for ferramenta in topico.ferramenta_set.all %}
             <div class="mb-4">
-                <h3>{{ ferramenta.nome_ferramenta }}</h3>
+                <h3 class="mb-2 text-3xl font-bold text-center">{{ ferramenta.nome_ferramenta }}</h3>
 
-                <img src="{{ ferramenta.imagem_ferramenta.url }}" alt="{{ ferramenta.nome_ferramenta }}">
+                <img class="w-1/2 mx-auto mb-6" src="{{ ferramenta.imagem_ferramenta.url }}" alt="{{ ferramenta.nome_ferramenta }}">
 
-                <p>{{ ferramenta.informacao_ferramenta }}</p>
+                <p class="w-4/5 mx-auto mb-4">{{ ferramenta.informacao_ferramenta }}</p>
 
-                <p><a href="{{ ferramenta.link_ferramenta }}">Veja mais</a></p>
+                <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ ferramenta.link_ferramenta }}">Veja mais sobre {{ ferramenta.nome_ferramenta }}</a></p>
 
             </div>
 
