@@ -23,3 +23,19 @@ class Ferramenta(models.Model):
 
     def __str__(self) -> str:
         return self.nome_ferramenta
+
+class Erro(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome_erro = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return self.nome_erro
+    
+class Suporte(models.Model):
+    nome = models.CharField('nome', max_length=100)
+    email = models.EmailField('email', max_length=100)
+    assunto = models.ForeignKey(Erro, on_delete=models.PROTECT, related_name='tipo_erro')
+    mensagem = models.TextField()
+
+    def __str__(self) -> str:
+        return f'{self.assunto}'
