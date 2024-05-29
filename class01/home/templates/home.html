@@ -34,6 +34,19 @@
             </div>
         </section>
 
+        <section class="w-2/3 mx-auto">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <table class="w-11/12 text-blue-800">
+                    <tr>
+                        <td>{{ form.as_table }}</td>
+                        <td class="mx-auto"><input class="mx-auto" type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+
         
 
         <!-- <section id="topics" class="flex items-center justify-center w-1/3 h-40 mx-auto border border-white rounded-xl">

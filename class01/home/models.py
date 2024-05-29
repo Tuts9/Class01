@@ -13,7 +13,6 @@ class Topico(models.Model):
     def __str__(self) -> str:
         return self.nome_topico
     
-
 class Ferramenta(models.Model):
     topico = models.ForeignKey(Topico, on_delete=models.PROTECT)
     nome_ferramenta = models.CharField(max_length=50)
