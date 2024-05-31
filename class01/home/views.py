@@ -16,8 +16,8 @@ def home(request):
             new_suport_form.save()
             return redirect('home')
         
-        else:
-            new_suport_form = SuporteModelForm()
+    else:
+        new_suport_form = SuporteModelForm()
 
     context = {'topicos': topicos, 'form': new_suport_form}
 
