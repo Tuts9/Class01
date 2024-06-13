@@ -1,0 +1,40 @@
+GESTÃO DE PROJETOS
+
+1 imagem grande escala
+
+1 frase com uma prévia e link
+
+3 ferramentas 
+
+1 imagem de cada + link
+
+1 frase
+
+INTRODUÇÃO - A gestão de projetos visa organizar os processos dentro de uma empresa. Com ela, os gerentes procuram unir conhecimento, habilidades, ferramentas e métodos com objetivo de entregar algum valor — seja interno ou externo, para seus clientes.
+
+No entanto, a verdadeira definição ainda é um mistério para muitos líderes de negócio.
+
+Na prática, porém, um projeto não é algo padronizado.
+
+Pode envolver um evento de curto prazo ou uma atividade contínua e de longo prazo dentro da empresa.
+
+
+TEXTO FERRAMENTA - Ferramentas de gestão de projetos são plataformas digitais que permitem gerenciar as atividades do projeto, acompanhar o progresso, fazer o controle de tempo e recursos, monitorar o orçamento e alocar tarefas1. Existem diversas ferramentas de gestão de projetos disponíveis no mercado, algumas das mais utilizadas são Trello, Asana, Jira, Monday.com, Microsoft Project, Artia, Slack, Podio, Bitrix24, GanttProject, Runrun.it, Microsoft Planner e CA Clarity234. Cada ferramenta tem suas características, vantagens e desvantagens, e cabe ao gestor escolher a mais adequada para o seu projeto.
+
+
+Primeiro link:
+https://www.totvs.com/blog/negocios/gestao-de-projetos/
+
+Segundo link:
+https://www.euax.com.br/2018/08/ferramentas-de-gestao-de-projetos-mais-utilizadas/
+
+
+1 ferramenta - Artia: https://app2.artia.com/users/login
+O Artia é uma das ferramentas de gestão de projetos mais completas da nossa lista. Suas funções incluem: controle financeiro (comparando o custo estimado com o real), sistema de apontamento de horas de colaboradores, relatórios de desempenho, kanban, e muito mais. Tudo isso em uma interface intuitiva, facilitando o trabalho de todos os envolvidos
+
+2 ferramenta - Trello: https://trello.com/pt-BR
+Uma das ferramentas de gerenciamento de projetos mais famosas do mundo, o Trello utiliza um esquema de listas, cartões e quadros para organizar atividades dentro de um projeto. Ele funciona basicamente como um kanban e sua principal vantagem é a facilidade de movimentar as tarefas entre as listas do projeto.
+
+3 ferramenta - Asana: https://asana.com/pt
+O Asana reúne várias funcionalidades para a gestão de projetos como o kanban, atribuição de tarefas a participantes e exibição das estatísticas do progresso do projeto. Mas seu grande diferencial é na visualização da linha do tempo do cronograma: ele possui uma interface que mostra o andamento de cada atividade em função do tempo, permitindo navegar através dos dias e ver o que cada participante é responsável por fazer.
+
