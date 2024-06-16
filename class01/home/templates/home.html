@@ -20,12 +20,17 @@
             <img class="w-1/2 h-auto rounded-xl" src="../img/Webinar-rafiki.png" alt="aprendiz de programação">
         </div>
 
-        <section id="topics" class="w-2/3 mx-auto">
+        <section id="topics" class="mx-auto">
             <h2 class="text-3xl text-center">Conheça nossos conteúdos</h2>
-            <div class="w-1/2 mx-auto">
-                <ul class="mt-6 mb-6">
+            <div class="w-10/12 mx-auto">
+                <ul class="grid grid-rows-4 mt-6 mb-6 lg:grid-cols-6 gap-y-4 sm:grid-cols-2">
                     {% for topico in topicos %}
-                        <li class="flex flex-row mx-32 my-1 hover:underline"><span class="mr-2"><img class="w-7 h-7" src="{{ topico.icon_topico.url }}" alt="Ícone {{ topico.nome_topico }}"></span><a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a></li>
+                        <li class="flex flex-row items-center hover:underline">
+                            <span class="mr-2">
+                                <img class="w-10 h-10" src="{{ topico.icon_topico.url }}" alt="Ícone {{ topico.nome_topico }}">
+                            </span>
+                            <a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
