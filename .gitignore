@@ -164,7 +164,7 @@ cython_debug/
 /public/assets/css/*
 
 # Arquivos de configuração do Tailwind CSS
-tailwind.config.js
+# tailwind.config.js
 
 # Dependências do npm ou Yarn
 node_modules/
