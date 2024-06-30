@@ -36,48 +36,99 @@
             </div>
         </section>
 
-        <section class="max-w-md mx-auto mt-10">
-            <h2 class="text-3xl text-center">Feedback</h2>
-            <form method="post">
-                {% csrf_token %}
-                <div class="mb-4 text-gray-800">
-                    <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                        Nome
-                    </label>
-                    {{ form.nome }}
-                    {% if form.nome.errors %}
-                        <p class="text-xs italic text-red-500">{{ form.nome.errors }}</p>
-                    {% endif %}
+        <section id="contact" class="relative pt-20 bg-gray-800 2xl:pt-40">
+            
+            <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 lg:block"></div>
+
+            <div class="container px-4 mx-auto">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex flex-wrap -mx-4">
+                        <div class="relative w-full px-4 pb-20 overflow-hidden lg:w-1/2">
+                            <div class="relative max-w-md">
+                                <div class="pb-16 mb-8 border-b border-gray-400">
+                                    <p class="text-lg font-bold text-blue-400">Have a question?</p>
+                                    <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Contact with us</h2>
+                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                        <div class="flex items-center">
+                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="call"></ion-icon></span>
+                                            <p class="text-lg font-bold text-white">(38) 99231-1967</p>
+                                        </div>
+                                    </div>
+                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                        <div class="flex items-center">
+                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="mail"></ion-icon></span>
+                                            <p class="text-lg font-bold text-white">arthur.devti@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                        <div class="flex items-center">
+                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="location"></ion-icon></span>
+                                            <p class="text-lg font-bold text-white">Curvelo - MG</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="max-w-xs">
+                                    <p class="text-gray-400">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada tellus eu lacus elementum, vel efficitur nisi accumsan. Ut efficitur dignissim gravida.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative w-full px-4 pb-20 lg:w-1/2">
+                            <div class="max-w-md lg:ml-20">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <h3 class="mb-10 text-2xl font-bold text-white">Send a message</h3>
+                                    <div class="mb-4 text-gray-800">
+                                        <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                            Nome
+                                        </label>
+                                        {{ form.nome }}
+                                        {% if form.nome.errors %}
+                                            <p class="text-xs italic text-red-500">{{ form.nome.errors }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mb-4 text-gray-800">
+                                        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                            Email
+                                        </label>
+                                        {{ form.email }}
+                                        {% if form.email.errors %}
+                                            <p class="text-xs italic text-red-500">{{ form.email.errors }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mb-4 text-gray-800">
+                                        <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                            Assunto
+                                        </label>
+                                        {{ form.assunto }}
+                                        {% if form.assunto.errors %}
+                                            <p class="text-xs italic text-red-500">{{ form.assunto.errors }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mb-4 text-gray-800">
+                                        <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                            Mensagem
+                                        </label>
+                                        {{ form.mensagem }}
+                                        {% if form.mensagem.errors %}
+                                            <p class="text-xs italic text-red-500">{{ form.mensagem.errors }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="flex mb-10">
+                                        <input type="checkbox" name="check" id="check">
+                                        <p class="max-w-xs pl-4 text-sm text-gray-300">By singning up, you agree to our Terms, Data Policy and Cookies</p>
+                                    </div>
+                                    <button class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Send message</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="mb-4 text-gray-800">
-                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                        Email
-                    </label>
-                    {{ form.email }}
-                    {% if form.email.errors %}
-                        <p class="text-xs italic text-red-500">{{ form.email.errors }}</p>
-                    {% endif %}
-                </div>
-                <div class="mb-4 text-gray-800">
-                    <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                        Assunto
-                    </label>
-                    {{ form.assunto }}
-                    {% if form.assunto.errors %}
-                        <p class="text-xs italic text-red-500">{{ form.assunto.errors }}</p>
-                    {% endif %}
-                </div>
-                <div class="mb-4 text-gray-800">
-                    <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                        Mensagem
-                    </label>
-                    {{ form.mensagem }}
-                    {% if form.mensagem.errors %}
-                        <p class="text-xs italic text-red-500">{{ form.mensagem.errors }}</p>
-                    {% endif %}
-                </div>
-                <button type="submit" class="block w-32 px-4 py-2 mx-auto mt-10 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:mx-auto">Enviar</button>
-            </form>
+            </div>
+            
         </section>
 
     {% endblock %}
