@@ -22,21 +22,24 @@
 
         <section id="topics" class="mx-auto">
             <h2 class="text-3xl text-center">Conheça nossos conteúdos</h2>
-            
-            <!-- #TODO: Adicionar um loop para exibir os tópicos cadastrados no banco de dados com um estilo novo e mais moderno -->
 
             <div class="w-10/12 mx-auto">
-                <ul class="grid grid-rows-4 mt-6 mb-6 gap-x-2 lg:grid-cols-6 gap-y-4 sm:grid-cols-2">
+                <ul class="grid grid-rows-4 mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 sm:grid-cols-2">
                     {% for topico in topicos %}
-                        <li class="flex flex-row items-center h-24 px-2 hover:underline">
-                            <div class="relative drop-shadow-xl w-48 h-64 overflow-hidden rounded-xl bg-[#3d3c3d]">
-                                <div class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-[#323132]">
-                                    <span class="mr-2">
-                                        <img class="w-10 h-10" src="{{ topico.icon_topico.url }}" alt="Ícone {{ topico.nome_topico }}">
-                                    </span>
-                                    <a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a>
+                        <li class="flex flex-row items-center h-24 px-2 mt-10 hover:underline">
+                            <div class="w-56 transition duration-300 transform bg-white rounded-lg shadow-lg hover:scale-110 h-52 hover:shadow-xl">
+                                <div class="flex items-center justify-center m-2 mx-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 h-3/6">
+                                    <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="">
                                 </div>
-                                <div class="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
+                
+                                <div class="flex flex-col px-5 pt-2">
+                                    <h2 class="font-semibold text-black">{{ topico.nome_topico }}</h2>
+                                    <a href="{% url 'exibir_topico' topico.id %}">
+                                        <button class="px-2 py-1 mt-2 text-white transition duration-150 bg-blue-500 rounded-md cursor-pointer hover:bg-blue-700" type="button">
+                                            Saiba mais
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </li>
                     {% endfor %}
@@ -44,9 +47,9 @@
             </div>
         </section>
 
-        <section id="contact" class="relative pt-20 bg-gray-800 2xl:pt-40">
+        <section id="contact" class="relative w-4/5 pt-20 mx-auto bg-gray-700 rounded-3xl 2xl:pt-40">
             
-            <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 lg:block"></div>
+            <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 border-2 rounded-3xl lg:block"></div>
 
             <div class="container px-4 mx-auto">
                 <div class="max-w-5xl mx-auto">
@@ -54,8 +57,8 @@
                         <div class="relative w-full px-4 pb-20 overflow-hidden lg:w-1/2">
                             <div class="relative max-w-md">
                                 <div class="pb-16 mb-8 border-b border-gray-400">
-                                    <p class="text-lg font-bold text-blue-400">Have a question?</p>
-                                    <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Contact with us</h2>
+                                    <p class="text-lg font-bold text-blue-400">Tem uma dúvida?</p>
+                                    <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Fale conosco</h2>
                                     <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
                                         <div class="flex items-center">
                                             <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="call"></ion-icon></span>
@@ -87,38 +90,38 @@
                             <div class="max-w-md lg:ml-20">
                                 <form method="post">
                                     {% csrf_token %}
-                                    <h3 class="mb-10 text-2xl font-bold text-white">Send a message</h3>
+                                    <h3 class="mb-10 text-2xl font-bold text-white">Envie uma mensagem</h3>
                                     <div class="mb-4 text-gray-800">
-                                        <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                        <!-- <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
                                             Nome
-                                        </label>
+                                        </label> -->
                                         {{ form.nome }}
                                         {% if form.nome.errors %}
                                             <p class="text-xs italic text-red-500">{{ form.nome.errors }}</p>
                                         {% endif %}
                                     </div>
                                     <div class="mb-4 text-gray-800">
-                                        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                        <!-- <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
                                             Email
-                                        </label>
+                                        </label> -->
                                         {{ form.email }}
                                         {% if form.email.errors %}
                                             <p class="text-xs italic text-red-500">{{ form.email.errors }}</p>
                                         {% endif %}
                                     </div>
                                     <div class="mb-4 text-gray-800">
-                                        <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                        <!-- <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
                                             Assunto
-                                        </label>
+                                        </label> -->
                                         {{ form.assunto }}
                                         {% if form.assunto.errors %}
                                             <p class="text-xs italic text-red-500">{{ form.assunto.errors }}</p>
                                         {% endif %}
                                     </div>
                                     <div class="mb-4 text-gray-800">
-                                        <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                        <!-- <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
                                             Mensagem
-                                        </label>
+                                        </label> -->
                                         {{ form.mensagem }}
                                         {% if form.mensagem.errors %}
                                             <p class="text-xs italic text-red-500">{{ form.mensagem.errors }}</p>
@@ -126,9 +129,9 @@
                                     </div>
                                     <div class="flex mb-10">
                                         <input type="checkbox" name="check" id="check">
-                                        <p class="max-w-xs pl-4 text-sm text-gray-300">By singning up, you agree to our Terms, Data Policy and Cookies</p>
+                                        <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
                                     </div>
-                                    <button class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Send message</button>
+                                    <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Enviar mensagem</button>
                                 </form>
                             </div>
                         </div>

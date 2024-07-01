@@ -21,7 +21,7 @@ class Ferramenta(models.Model):
     link_ferramenta = models.URLField()
 
     def __str__(self) -> str:
-        return self.nome_ferramenta
+        return f'{self.topico} / {self.nome_ferramenta}'
 
 class Erro(models.Model):
     id = models.AutoField(primary_key=True)
@@ -37,4 +37,4 @@ class Suporte(models.Model):
     mensagem = models.TextField()
 
     def __str__(self) -> str:
-        return f'{self.assunto}'
+        return f'{self.assunto} / {self.mensagem}'
