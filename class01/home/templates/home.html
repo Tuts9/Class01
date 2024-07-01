@@ -22,14 +22,22 @@
 
         <section id="topics" class="mx-auto">
             <h2 class="text-3xl text-center">Conheça nossos conteúdos</h2>
+            
+            <!-- #TODO: Adicionar um loop para exibir os tópicos cadastrados no banco de dados com um estilo novo e mais moderno -->
+
             <div class="w-10/12 mx-auto">
-                <ul class="grid grid-rows-4 mt-6 mb-6 lg:grid-cols-6 gap-y-4 sm:grid-cols-2">
+                <ul class="grid grid-rows-4 mt-6 mb-6 gap-x-2 lg:grid-cols-6 gap-y-4 sm:grid-cols-2">
                     {% for topico in topicos %}
-                        <li class="flex flex-row items-center hover:underline">
-                            <span class="mr-2">
-                                <img class="w-10 h-10" src="{{ topico.icon_topico.url }}" alt="Ícone {{ topico.nome_topico }}">
-                            </span>
-                            <a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a>
+                        <li class="flex flex-row items-center h-24 px-2 hover:underline">
+                            <div class="relative drop-shadow-xl w-48 h-64 overflow-hidden rounded-xl bg-[#3d3c3d]">
+                                <div class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-[#323132]">
+                                    <span class="mr-2">
+                                        <img class="w-10 h-10" src="{{ topico.icon_topico.url }}" alt="Ícone {{ topico.nome_topico }}">
+                                    </span>
+                                    <a href="{% url 'exibir_topico' topico.id %}">{{ topico.nome_topico }}</a>
+                                </div>
+                                <div class="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>
