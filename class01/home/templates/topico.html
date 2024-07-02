@@ -9,27 +9,48 @@
     
     {% block content %}
 
-        <h1 class="text-5xl font-bold text-center mb-9">{{ topico.nome_topico }}</h1>
+        <h1 class="text-5xl font-bold text-center my-9">{{ topico.nome_topico }}</h1>
 
-        <p class="w-4/5 mx-auto mb-4">{{ topico.introducao }}</p>
+        <p class="w-1/2 mx-auto mb-4">{{ topico.introducao }}</p>
 
-        <img class="w-1/2 mx-auto mb-6" src="{{ topico.imagem.url }}" alt="{{ topico.nome_topico }}">
+        <img class="w-1/2 mx-auto mb-6 rounded-2xl" src="{{ topico.imagem.url }}" alt="{{ topico.nome_topico }}">
 
-        <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ topico.fonte }}">Veja mais sobre {{ topico.nome_topico }}</a></p>
+        <div class="flex justify-center my-5">
+            <a target="_blank" href="{{ topico.fonte }}">
+                <button class="px-4 py-2 overflow-hidden font-medium text-blue-400 duration-300 bg-black border border-b-4 border-blue-400 rounded-md outline-none hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group">
+                    <span class="bg-blue-400 shadow-blue-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                    Veja mais sobre {{ topico.nome_topico }}
+                </button>
+            </a>
+        </div>
+
+        <p class="w-1/2 mx-auto mb-4">{{ topico.texto_ferramenta }}</p>
         
-        <p class="w-4/5 mx-auto mb-4">{{ topico.texto_ferramenta }}</p>
-        
-        <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ topico.fonte_ferramenta }}">Veja mais sobre as principais ferramentas</a></p>
+        <div class="flex justify-center mb-5">
+            <a href="{{ topico.fonte_ferramenta }}" target="_blank">
+                <button class="px-4 py-2 overflow-hidden font-medium text-blue-400 duration-300 bg-black border border-b-4 border-blue-400 rounded-md outline-none hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group">
+                    <span class="bg-blue-400 shadow-blue-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                    Veja mais sobre as principais ferramentas
+                </button>
+            </a>
+        </div>
 
         {% for ferramenta in topico.ferramenta_set.all %}
             <div class="mb-4">
                 <h3 class="mb-2 text-3xl font-bold text-center">{{ ferramenta.nome_ferramenta }}</h3>
 
-                <img class="w-1/2 mx-auto mb-6" src="{{ ferramenta.imagem_ferramenta.url }}" alt="{{ ferramenta.nome_ferramenta }}">
+                <img class="w-1/2 mx-auto mb-6 rounded-2xl" src="{{ ferramenta.imagem_ferramenta.url }}" alt="{{ ferramenta.nome_ferramenta }}">
 
-                <p class="w-4/5 mx-auto mb-4">{{ ferramenta.informacao_ferramenta }}</p>
+                <p class="w-1/2 mx-auto mb-4">{{ ferramenta.informacao_ferramenta }}</p>
 
-                <p class="w-1/2 mx-auto mb-6 text-center text-blue-500 underline"><a target="_blank" href="{{ ferramenta.link_ferramenta }}">Veja mais sobre {{ ferramenta.nome_ferramenta }}</a></p>
+                <div class="flex justify-center">
+                    <a target="_blank" href="{{ ferramenta.link_ferramenta }}">
+                        <button class="px-4 py-2 overflow-hidden font-medium text-blue-400 duration-300 bg-black border border-b-4 border-blue-400 rounded-md outline-none hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 group">
+                            <span class="bg-blue-400 shadow-blue-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                            Veja mais sobre {{ ferramenta.nome_ferramenta }}
+                        </button>
+                    </a>
+                </div>
 
             </div>
 
