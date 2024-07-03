@@ -20,14 +20,14 @@
             <img class="w-1/2 h-auto rounded-xl" src="../img/Webinar-rafiki.png" alt="aprendiz de programação">
         </div>
 
-        <section id="topics" class="mx-auto mb-16">
+        <section id="topics" class="m-20 mx-auto ">
             <h2 class="text-3xl text-center">Conheça nossos conteúdos</h2>
 
             <div class="w-10/12 mx-auto">
-                <ul class="grid grid-rows-4 mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 sm:grid-cols-2">
+                <ul class="grid mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 sm:grid-cols-2">
                     {% for topico in topicos %}
                         <li class="flex flex-row items-center h-24 px-2 mt-10 hover:underline">
-                            <div class="w-56 transition duration-300 transform bg-white rounded-lg shadow-lg hover:scale-110 h-52 hover:shadow-xl">
+                            <div class="justify-between w-56 transition duration-300 transform bg-white rounded-lg shadow-lg hover:scale-110 hover:shadow-xl min-h-52">
                                 <div class="flex items-center justify-center m-2 mx-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 h-3/6">
                                     <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="">
                                 </div>
@@ -135,10 +135,10 @@
                                             </div>
                                         {% endif %}
                                     </div>
-                                    <div class="flex mb-10">
+                                    <!-- <div class="flex mb-10">
                                         <input type="checkbox" name="check" id="check">
                                         <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
-                                    </div>
+                                    </div> -->
                                     <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Enviar mensagem</button>
                                 </form>
                             </div>
