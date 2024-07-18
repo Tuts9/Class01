@@ -38,7 +38,6 @@ def topic_list(request, topico_id):
         next_topic = None
 
     try:
-        #TODO: Resolver problema que não volta para o tópico anterior, está indo para o ultimo topico direto
         previous_topic = Topico.objects.filter(id__lt=current_topic.id).order_by('-id').first()
     except Topico.DoesNotExist:
         previous_topic = None

@@ -2,7 +2,7 @@
 {% load static tailwind_tags %}
 <html lang="en">
 <head>
-    <title>{% block title %} - {{ topic_list.nome_topico }} {% endblock %}</title>
+    <title>{% block title %} - {{ current_topic.nome_topico }} {% endblock %}</title>
     {% tailwind_css %}
 </head>
 <body class="flex items-center justify-center">
