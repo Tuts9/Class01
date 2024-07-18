@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from .models import *
 from .forms import *
 
@@ -26,3 +27,23 @@ def home(request):
 def exibir_topico(request, topico_id):
     topico = get_object_or_404(Topico, id=topico_id)
     return render(request, 'topico.html', {'topico': topico})
+
+def topic_list(request, topico_id):
+    current_topic = get_object_or_404(Topico, id=topico_id)
+    ferramentas = Ferramenta.objects.filter(topico=current_topic)
+
+    try:
+        next_topic = Topico.objects.filter(id__gt=current_topic.id).order_by('id').first()
+    except Topico.DoesNotExist:
+        next_topic = None
+
+    try:
+        #TODO: Resolver problema que não volta para o tópico anterior, está indo para o ultimo topico direto
+        previous_topic = Topico.objects.filter(id__lt=current_topic.id).order_by('-id').first()
+    except Topico.DoesNotExist:
+        previous_topic = None
+
+    context = {'current_topic': current_topic, 'ferramentas': ferramentas, 'next_topic': next_topic, 'previous_topic': previous_topic}
+
+    return render(request, 'topico.html', context)
+

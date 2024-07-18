@@ -1,0 +1,22 @@
+<section class="py-3">
+    <div class="container px-4 mx-auto">
+        <div class="px-5 py-6">
+            <div class="flex flex-wrap items-center justify-between -m-2">
+                <div class="flex flex-wrap justify-between w-full p-2 mx-auto sm:w-auto">
+                    <div class="flex flex-wrap items-center -m-1.5 mx-auto">
+                        <div class="w-full sm:w-auto">
+                            {% if previous_topic %}
+                                <a href="{% url 'exibir_topico' previous_topic.id %}" class="inline-block w-full px-4 py-2 mb-2 mr-3 text-xs font-semibold leading-normal text-center text-gray-400 transition bg-gray-700 rounded-lg sm:w-auto hover:bg-gray-800 durantion-200">Previous</a>
+                            {% endif %}
+                        </div>
+                        <div class="w-full sm:w-auto">
+                            {% if next_topic %}
+                                <a href="{% url 'exibir_topico' next_topic.id %}" class="inline-block w-full px-4 py-2 mb-2 mr-3 text-xs font-semibold leading-normal text-center text-gray-400 transition bg-gray-700 rounded-lg sm:w-auto hover:bg-gray-800 durantion-200">Next</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
