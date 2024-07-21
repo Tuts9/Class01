@@ -8,37 +8,42 @@
     
     {% block content %}
 
-        <div id="hero" class="flex items-center w-10/12 mx-auto mt-10 lg:flex-row sm:flex-col">
-            <div class="flex flex-col w-1/3 mx-10 mb-16 sm:w-4/5">
-                <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
-                <p class="mt-2 mb-auto text-lg text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
+        <section id="hero" class="flex items-center w-full mx-auto bg-gray-900 lg:flex-row xs:flex-col">
+            <div class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
+                <div class="flex xs:w-full xs:flex-col">
+                    <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
+                    <p class="mt-4 mb-2 text-lg text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
+                </div>
 
-                    <div>
-                        <button type="submit" class="px-4 py-2 mt-10 text-sm font-medium text-center text-blue-700 bg-white rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:hover:bg-blue-100 dark:focus:ring-blue-800"><a href="{% url 'exibir_topico' 1 %}">Comece agora</a></button>
-                        
-                        <button type="submit" class="px-4 py-2 mt-10 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="{% url 'exibir_topico' 1 %}">Fale conosco</a></button>
-                    </div>
+                <div class="flex xs:flex-row">
+                    <button type="submit" class="px-5 py-3 mt-5 text-base font-medium text-center text-blue-700 transition duration-300 bg-white rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-800"><a href="{% url 'exibir_topico' 1 %}">Comece agora</a></button>
+
+                    <button type="submit" class="px-5 py-3 mt-5 ml-5 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800"><a href="#contact">Fale conosco</a></button>
+                    
+                </div>
             </div>
 
-            <img class="w-1/2 h-auto rounded-xl" src="../img/Webinar-rafiki.png" alt="aprendiz de programação">
-        </div>
+            <div class="w-1/2 h-auto">
+                <img class="rounded-xl" src="../img/Webinar-rafiki.png" alt="aprendiz de programação">
+            </div>
+        </section>
 
-        <section id="topic" class="py-20 mx-auto">
+        <section id="topic" class="flex flex-col w-full py-20 mx-auto">
             <h2 class="my-5 text-4xl font-medium text-center">Explore programming topics</h2>
             <p class="my-5 text-lg text-center">Dive into the core concepts and skills needed to become a successful programmer.</p>
 
-            <div class="w-10/12 mx-auto">
-                <ul class="grid mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 sm:grid-cols-2">
+            <div class="flex w-full mx-auto">
+                <ul class="grid mx-auto mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 xs:grid-cols-2">
                     {% for topico in topicos %}
                         <li class="flex flex-row items-center h-24 px-2 mt-10">
-                            <div class="justify-between w-56 transition duration-300 transform bg-white rounded-lg shadow-lg hover:scale-110 hover:shadow-xl min-h-52">
-                                <div class="flex items-center justify-center m-2 mx-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 h-3/6">
+                            <div class="justify-between w-56 transition duration-300 transform bg-gray-900 rounded-lg shadow-lg hover:scale-110 hover:shadow-xl min-h-52">
+                                <div class="flex items-center justify-center mx-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 h-3/6">
                                     <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="">
                                 </div>
                 
                                 <div class="flex flex-col px-5 pt-2">
-                                    <h2 class="font-semibold text-black">{{ topico.nome_topico }}</h2>
-                                    <button class="flex w-full px-2 py-1 mx-auto mt-2 text-center text-white transition duration-150 bg-blue-500 rounded-md cursor-pointer hover:bg-blue-700" type="button">
+                                    <h2 class="font-semibold text-white">{{ topico.nome_topico }}</h2>
+                                    <button class="flex w-full px-2 py-1 mx-auto mt-2 text-center text-white transition duration-150 bg-blue-700 rounded-md cursor-pointer hover:bg-blue-900" type="button">
                                         <a class="flex mx-auto text-center" href="{% url 'exibir_topico' topico.id %}">Explore</a>
                                     </button>
                                 </div>
@@ -49,107 +54,109 @@
             </div>
         </section>
 
-        <section id="contact" class="relative w-10/12 mx-auto bg-gray-700 sm:pt-20 rounded-3xl 2xl:pt-40">
+        <section id="contact" class="flex">
+            <div class="relative w-full mx-auto ml-2 mr-2 bg-gray-700 sm:pt-20 rounded-3xl 2xl:pt-40">
             
-            <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 border-2 rounded-3xl lg:block"></div>
+                <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 border-2 rounded-3xl lg:block"></div>
 
-            <div class="container px-4 mx-auto">
-                <div class="max-w-5xl mx-auto">
-                    <div class="flex flex-wrap -mx-4">
-                        <div class="relative w-full px-4 pb-20 overflow-hidden lg:w-1/2">
-                            <div class="relative max-w-md">
-                                <div class="pb-16 mb-8 border-b border-gray-400">
-                                    <p class="text-lg font-bold text-blue-400">Tem uma dúvida?</p>
-                                    <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Fale conosco</h2>
-                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
-                                        <div class="flex items-center">
-                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="call"></ion-icon></span>
-                                            <p class="text-lg font-bold text-white">(38) 99231-1967</p>
+                <div class="container px-4 mx-auto">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="flex flex-wrap -mx-4">
+                            <div class="relative w-full px-4 pb-20 overflow-hidden lg:w-1/2">
+                                <div class="relative max-w-md">
+                                    <div class="pb-16 mb-8 border-b border-gray-400">
+                                        <p class="text-lg font-bold text-blue-400">Tem uma dúvida?</p>
+                                        <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Fale conosco</h2>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="call"></ion-icon></span>
+                                                <p class="text-lg font-bold text-white">(38) 99231-1967</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="mail"></ion-icon></span>
+                                                <p class="text-lg font-bold text-white">arthur.devti@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="location"></ion-icon></span>
+                                                <p class="text-lg font-bold text-white">Curvelo - MG</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
-                                        <div class="flex items-center">
-                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="mail"></ion-icon></span>
-                                            <p class="text-lg font-bold text-white">arthur.devti@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
-                                        <div class="flex items-center">
-                                            <span class="flex items-center justify-center w-12 h-12 mr-8 bg-blue-500 rounded-lg"><ion-icon class="w-4 h-4" name="location"></ion-icon></span>
-                                            <p class="text-lg font-bold text-white">Curvelo - MG</p>
-                                        </div>
+                                    <div class="max-w-xs">
+                                        <p class="text-gray-400">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada tellus eu lacus elementum, vel efficitur nisi accumsan. Ut efficitur dignissim gravida.
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="max-w-xs">
-                                    <p class="text-gray-400">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada tellus eu lacus elementum, vel efficitur nisi accumsan. Ut efficitur dignissim gravida.
-                                    </p>
+                            </div>
+
+                            <div class="relative w-full px-4 pb-20 lg:w-1/2">
+                                <div class="max-w-md lg:ml-20">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <h3 class="mb-10 text-2xl font-bold text-white">Envie uma mensagem</h3>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Nome
+                                            </label> -->
+                                            {{ form.nome }}
+                                            {% if form.nome.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.nome.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Email
+                                            </label> -->
+                                            {{ form.email }}
+                                            {% if form.email.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.email.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Assunto
+                                            </label> -->
+                                            {{ form.assunto }}
+                                            {% if form.assunto.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.assunto.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Mensagem
+                                            </label> -->
+                                            {{ form.mensagem }}
+                                            {% if form.mensagem.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.mensagem.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <!-- <div class="flex mb-10">
+                                            <input type="checkbox" name="check" id="check">
+                                            <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
+                                        </div> -->
+                                        <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Enviar mensagem</button>
+                                    </form>
                                 </div>
                             </div>
+                            
                         </div>
-
-                        <div class="relative w-full px-4 pb-20 lg:w-1/2">
-                            <div class="max-w-md lg:ml-20">
-                                <form method="post">
-                                    {% csrf_token %}
-                                    <h3 class="mb-10 text-2xl font-bold text-white">Envie uma mensagem</h3>
-                                    <div class="mb-4 text-gray-800">
-                                        <!-- <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                                            Nome
-                                        </label> -->
-                                        {{ form.nome }}
-                                        {% if form.nome.errors %}
-                                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                                                <span class="font-medium">Erro!</span> {{ form.nome.errors }}.
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="mb-4 text-gray-800">
-                                        <!-- <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                                            Email
-                                        </label> -->
-                                        {{ form.email }}
-                                        {% if form.email.errors %}
-                                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                                                <span class="font-medium">Erro!</span> {{ form.email.errors }}.
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="mb-4 text-gray-800">
-                                        <!-- <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                                            Assunto
-                                        </label> -->
-                                        {{ form.assunto }}
-                                        {% if form.assunto.errors %}
-                                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                                                <span class="font-medium">Erro!</span> {{ form.assunto.errors }}.
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="mb-4 text-gray-800">
-                                        <!-- <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
-                                            Mensagem
-                                        </label> -->
-                                        {{ form.mensagem }}
-                                        {% if form.mensagem.errors %}
-                                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                                                <span class="font-medium">Erro!</span> {{ form.mensagem.errors }}.
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <!-- <div class="flex mb-10">
-                                        <input type="checkbox" name="check" id="check">
-                                        <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
-                                    </div> -->
-                                    <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Enviar mensagem</button>
-                                </form>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
-            </div>
             
+            </div>
         </section>
 
     {% endblock %}

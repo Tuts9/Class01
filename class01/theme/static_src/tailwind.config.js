@@ -44,6 +44,7 @@ module.exports = {
     theme: {
         extend: {},
         screens: {
+            'xs': '300px',
             'sm': '370px',  // Ajuste este valor conforme necessário
             'md': '768px',
             'lg': '1024px',
