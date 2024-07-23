@@ -8,7 +8,7 @@
     
     {% block content %}
 
-        <section id="hero" class="flex items-center w-full mx-auto bg-gray-900 lg:flex-row xs:flex-col">
+        <section id="section1" class="flex items-center w-full mx-auto bg-gray-900 lg:flex-row xs:flex-col">
             <div class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
                 <div class="flex xs:w-full xs:flex-col">
                     <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
@@ -16,9 +16,13 @@
                 </div>
 
                 <div class="flex xs:flex-row">
-                    <button type="submit" class="px-5 py-3 mt-5 text-base font-medium text-center text-blue-700 transition duration-300 bg-white rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-800"><a href="{% url 'exibir_topico' 1 %}">Comece agora</a></button>
+                    <a href="{% url 'exibir_topico' 1 %}">
+                        <button type="submit" class="px-5 py-3 mt-5 text-base font-medium text-center text-blue-700 transition duration-300 bg-white rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-800">Comece agora</button>
+                    </a>
 
-                    <button type="submit" class="px-5 py-3 mt-5 ml-5 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800"><a href="#contact">Fale conosco</a></button>
+                    <a href="#contact">
+                        <button type="submit" class="px-5 py-3 mt-5 ml-5 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Fale conosco</button>
+                    </a>
                     
                 </div>
             </div>
@@ -28,7 +32,7 @@
             </div>
         </section>
 
-        <section id="topic" class="flex flex-col w-full py-20 mx-auto">
+        <section id="section2" class="flex flex-col w-full py-20 mx-auto">
             <h2 class="my-5 text-4xl font-medium text-center">Explore programming topics</h2>
             <p class="my-5 text-lg text-center">Dive into the core concepts and skills needed to become a successful programmer.</p>
 
@@ -43,9 +47,9 @@
                 
                                 <div class="flex flex-col px-5 pt-2">
                                     <h2 class="font-semibold text-white">{{ topico.nome_topico }}</h2>
-                                    <button class="flex w-full px-2 py-1 mx-auto mt-2 text-center text-white transition duration-150 bg-blue-700 rounded-md cursor-pointer hover:bg-blue-900" type="button">
-                                        <a class="flex mx-auto text-center" href="{% url 'exibir_topico' topico.id %}">Explore</a>
-                                    </button>
+                                    <a class="flex justify-center w-full mx-auto" href="{% url 'exibir_topico' topico.id %}">
+                                        <button class="flex justify-center w-full px-2 py-1 mx-auto mt-2 text-white transition duration-150 bg-blue-700 rounded-md cursor-pointer hover:bg-blue-900" type="button">Explore</button>
+                                    </a>
                                 </div>
                             </div>
                         </li>
@@ -54,7 +58,7 @@
             </div>
         </section>
 
-        <section id="contact" class="flex">
+        <section id="section3" class="flex">
             <div class="relative w-full mx-auto ml-2 mr-2 bg-gray-700 sm:pt-20 rounded-3xl 2xl:pt-40">
             
                 <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 border-2 rounded-3xl lg:block"></div>
@@ -147,7 +151,7 @@
                                             <input type="checkbox" name="check" id="check">
                                             <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
                                         </div> -->
-                                        <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-500 rounded-full hover:bg-blue-600 durantion-200">Enviar mensagem</button>
+                                        <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-700 rounded-full hover:bg-white hover:text-blue-700 durantion-300">Enviar mensagem</button>
                                     </form>
                                 </div>
                             </div>
@@ -160,6 +164,8 @@
         </section>
 
     {% endblock %}
+
+        
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.core.paginator import Paginator
+from django.template import RequestContext
 from .models import *
 from .forms import *
 
@@ -42,7 +42,10 @@ def topic_list(request, topico_id):
     except Topico.DoesNotExist:
         previous_topic = None
 
-    context = {'current_topic': current_topic, 'ferramentas': ferramentas, 'next_topic': next_topic, 'previous_topic': previous_topic}
+    context = {'current_topic': current_topic,
+               'ferramentas': ferramentas,
+               'next_topic': next_topic,
+               'previous_topic': previous_topic}
 
     return render(request, 'topico.html', context)
 
