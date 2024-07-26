@@ -123,7 +123,7 @@ Arthur Rodrigues
     ### Já com o Django instalado crie o projeto com o seguinte comando
 
     ```bash
-    django-admin startproject myproject
+    django-admin startproject class01
     ```
 
     ### Em seguida entre na pasta do projeto
