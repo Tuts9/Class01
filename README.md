@@ -44,35 +44,51 @@ Arthur Rodrigues
 
     ### Clone o repositório
 
-    `git clone https://github.com/Tuts9/Projeto-Integrador.git`
+    ```bash
+    git clone https://github.com/Tuts9/Projeto-Integrador.git
+    ```
 
     ### Acesse a pasta com o terminal e crie um ambiente virtual
 
-    `python -m venv .venv`
+    ```bash
+    python -m venv .venv
+    ```
 
     ### Ative seu ambiente virtual
 
-    `.venv\Scripts\activate`
+    ```bash
+    .venv\Scripts\activate
+    ```
 
     ### Instale todas as dependências com o requirements.txt
 
-    `pip install -r requirements.txt`
+    ```bash
+    pip install -r requirements.txt
+    ```
 
     ### Após a instalação entre na pasta seguinte
 
-    `cd class01`
+    ```bash
+    cd class01
+    ```
 
     ### Em seguida realize as migrações para configurar o banco de dados
 
-    `python manage.py migrate`
+    ```bash
+    python manage.py migrate
+    ```
 
     ### Agora construa toda a estilização do site usando o Tailwind CSS
 
-    `python manage.py tailwind build`
+    ```bash
+    python manage.py tailwind build
+    ```
 
     ### Agora seu projeto está pronto para ser visualizado, só falta iniciar o servidor local
 
-    `python manage.py runserver`
+    ```bash
+    python manage.py runserver
+    ```
 
 ## Instalação e configuração (Criando seu próprio projeto)
 
@@ -88,43 +104,63 @@ Arthur Rodrigues
 
     ### Com seu editor de código aberto prepare o ambiente de desenvolvimento crie um ambiente virtual
 
-    `python -m venv .venv`
+    ```bash
+    python -m venv .venv
+    ```
 
     ### Logo em seguida ative seu ambiente virtual
 
-    `.venv\Scripts\activate`
+    ```bash
+    .venv\Scripts\activate
+    ```
 
     ### Instale o Django dentro do seu ambiente
 
-    `pip install django`
+    ```bash
+    pip install django
+    ```
 
     ### Já com o Django instalado crie o projeto com o seguinte comando
 
-    `django-admin startproject myproject`
+    ```bash
+    django-admin startproject myproject
+    ```
 
     ### Em seguida entre na pasta do projeto
 
-    `cd class01`
+    ```bash
+    cd class01
+    ```
 
     ### Crie o app do seu projeto
 
-    `python manage.py startapp myapp`
+    ```bash
+    python manage.py startapp myapp
+    ```
 
     ### Teste a sua aplicação no 'localhost'
 
-    `python manage.py runserver`
+    ```bash
+    python manage.py runserver
+    ```
 
     ### Criando as migrações do banco de dados
 
-    `python manage.py makemigrations`
+    ```bash
+    python manage.py makemigrations
+    ```
 
     ### Aplique as migrações para o banco de dados
 
-    `python manage.py migrate`
+    ```bash
+    python manage.py migrate
+    ```
 
     ### Crie um super usuário para acesso ao painel de administrador
 
-    `python manage.py createsuperuser`
+    ```bash
+    python manage.py createsuperuser
+    ```
 
     ### Finalização
 
@@ -150,7 +186,7 @@ Arthur Rodrigues
 ## Configuração Django
 
 ### Arquivo 'settings.py'
-- Em `Static_URL = 'static/'`, vamos criar o `static_Root`. Inserir abaixo: `static_Root = os.path.join(BASE_DIR, 'staticfiles)`. Adicionar biblioteca no topo: `import os`.
+- Em `Static_URL = 'static/'`, vamos criar o `static_Root`. Inserir abaixo: `static_Root = os.path.join(BASE_DIR, 'staticfiles)`. Importe a biblioteca no início do código: `import os`.
 - No tópico templates TEMPLATES no arquivo settings.py, insira: Na linha `dirs['templates]`.
 - Após criar o seu app adicione o nome do seu app em `INSTALLED_APPS`.
 - Configure a linguagem do projeto para PT-BR como padrão, em `LANGUAGE_CODE` adicione `'pt-br'`,
