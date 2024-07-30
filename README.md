@@ -1,11 +1,5 @@
 # Projeto Integrador - Class01
 
-## O Projeto
-Aplicação Web Class01
-
-## Desenvolvedor responsável
-Arthur Rodrigues
-
 ## Introdução
 
 - ### Visão geral do projeto
@@ -195,3 +189,8 @@ e em `TIME_ZONE` adicione `'America/Sao_Paulo'`.
 ### URL's
 
 As urls do projeto Django servem para conectar os links e retornar a visualização referente à aquela `URL`, dependendo do projeto se ele tiver vários apps as urls podem serem maiores e para facilitar na busca do usuário e identificação em possíveis manutenções dos desenvolvedores.
+
+
+
+
+## Desenvolvido por: Arthur Rodrigues
