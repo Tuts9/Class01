@@ -9,9 +9,9 @@
     
     {% block content %}
 
-        <h1 class="text-5xl font-semibold text-center my-9"><span class="border-b-2 border-white">{{ current_topic.nome_topico }}</span></h1>
+        <h1 id="title-tool" class="text-5xl font-semibold text-center opacity-0 my-9">{{ current_topic.nome_topico }}</h1>
 
-        <img class="w-3/4 mx-auto mb-6 rounded-2xl" src="{{ current_topic.imagem.url }}" alt="{{ current_topic.nome_topico }}">
+        <img id="img-topic" class="w-3/4 mx-auto mb-6 rounded-2xl" src="{{ current_topic.imagem.url }}" alt="{{ current_topic.nome_topico }}">
 
         <p class="w-11/12 mx-auto mb-8 text-lg">{{ current_topic.introducao }}</p>
 
@@ -21,16 +21,16 @@
             </a>
         </div>
 
-        <div class="w-full py-10 mt-8 bg-gray-900 rounded-tl-2xl rounded-tr-2xl">
-            <h2 class="text-4xl font-medium text-center mb-9">Principais ferramentas para <span class="text-blue-500 border-b-2 border-white">{{ current_topic.nome_topico }}</span></h2>
+        <div id="section-tools" class="w-full py-10 mt-8 bg-gray-900 rounded-tl-2xl rounded-tr-2xl">
+            <h2 id="title-tools" class="mx-2 text-4xl font-medium text-center mb-9">Principais ferramentas para <span class="text-blue-500">{{ current_topic.nome_topico }}</span></h2>
 
-            <p class="w-11/12 mx-auto mb-4 text-lg">{{ current_topic.texto_ferramenta }}</p>
+            <p id="text-tools" class="w-11/12 mx-auto mb-4 text-lg">{{ current_topic.texto_ferramenta }}</p>
         </div>
 
         <div class="w-full bg-gray-900 py-7">
             {% for ferramenta in ferramentas %}
-                <div class="px-4 py-8 mx-auto mb-8 bg-slate-700 rounded-3xl sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                    <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div id="card-tool" class="px-4 py-8 mx-auto mb-8 bg-slate-700 rounded-3xl sm:max-w-xl xs:w-11/12 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                    <div class="flex flex-col items-center justify-between w-full mb-10 tool lg:flex-row">
                         <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
                             <div class="max-w-xl mb-6">
                         
@@ -43,7 +43,7 @@
                                 </a>
                             </div>
                         </div>
-                        <img alt="logo" width="750" height="750" src="{{ ferramenta.imagem_ferramenta.url }}" />
+                        <img alt="logo" width="750" height="750" src="{{ ferramenta.imagem_ferramenta.url }}"/>
                     </div>
                 </div>
             {% endfor %}
@@ -54,8 +54,6 @@
                 </a>
             </div>
         </div>
-
-        
 
         {% include 'pagination.html' %}
 

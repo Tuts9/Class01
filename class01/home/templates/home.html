@@ -9,7 +9,7 @@
     {% block content %}
 
         <section id="section1" class="flex items-center w-full mx-auto bg-gray-900 lg:flex-row xs:flex-col">
-            <div class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
+            <div id="text-home" class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
                 <div class="flex xs:w-full xs:flex-col">
                     <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
                     <p class="mt-4 mb-2 text-lg text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
@@ -23,24 +23,23 @@
                     <a href="#section3">
                         <button type="submit" class="px-5 py-3 mt-5 ml-5 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Fale conosco</button>
                     </a>
-                    
                 </div>
             </div>
 
-            <div class="w-1/2 h-auto">
+            <div id="img-home" class="w-1/2 h-auto">
                 <img class="rounded-xl" src="../img/Webinar-rafiki.png" alt="aprendiz de programação">
             </div>
         </section>
 
         <section id="section2" class="flex flex-col w-full py-20 mx-auto">
-            <h2 class="my-5 text-4xl font-medium text-center">Explore programming topics</h2>
-            <p class="my-5 text-lg text-center">Dive into the core concepts and skills needed to become a successful programmer.</p>
+            <h2 id="title-topic" class="my-5 text-4xl font-medium text-center opacity-0">Explore programming topics</h2>
+            <p id="text-topic" class="my-5 text-lg text-center opacity-0">Dive into the core concepts and skills needed to become a successful programmer.</p>
 
             <div class="flex w-full mx-auto">
                 <ul class="grid mx-auto mt-6 mb-6 gap-x-1 lg:grid-cols-6 gap-y-20 xs:grid-cols-2">
                     {% for topico in topicos %}
                         <li class="flex flex-row items-center h-24 px-2 mt-10">
-                            <div class="justify-between w-56 transition duration-300 transform bg-gray-900 rounded-lg shadow-lg hover:scale-110 hover:shadow-xl min-h-52">
+                            <div class="justify-between w-56 transition duration-300 transform bg-gray-900 rounded-lg shadow-lg opacity-0 card hover:scale-110 hover:shadow-xl min-h-52">
                                 <div class="flex items-center justify-center mx-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 h-3/6">
                                     <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="">
                                 </div>
@@ -164,8 +163,6 @@
         </section>
 
     {% endblock %}
-
-        
 
 </body>
 </html>
