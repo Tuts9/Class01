@@ -42,7 +42,11 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                poppins: ['"Poppins"', 'sans-serif'],
+            },
+        },
         screens: {
             'xs': '300px',
             'sm': '370px',  // Ajuste este valor conforme necessário

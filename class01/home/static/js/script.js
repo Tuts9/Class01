@@ -101,8 +101,8 @@ function startAnimationTitleTools(elem) {
     scrollTrigger: {
       trigger: sectionTools,
       start: 'top bottom',
-      end: 'center center',
-      markers: true
+      end: 'center 70%',
+      scrub: true
     }
   });
 }
@@ -123,8 +123,8 @@ cardTools.forEach(cardTool => {
     duration: 2,
     scrollTrigger: {
       trigger: cardTool, // <-- Use o elemento individual aqui
-      start: 'top 500px',
-      end: 'bottom bottom',
+      start: 'top 80%',
+      end: 'bottom 90%',
       scrub: true
     }
   });
