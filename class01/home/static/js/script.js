@@ -124,7 +124,7 @@ cardTools.forEach(cardTool => {
     scrollTrigger: {
       trigger: cardTool, // <-- Use o elemento individual aqui
       start: 'top 80%',
-      end: 'bottom 90%',
+      end: 'bottom 95%%',
       scrub: true
     }
   });
