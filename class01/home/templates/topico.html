@@ -9,7 +9,7 @@
     
     {% block content %}
 
-        <h1 id="title-tool" class="text-5xl font-semibold text-center opacity-0 my-9">{{ current_topic.nome_topico }}</h1>
+        <h1 id="title-tool" class="text-5xl font-semibold text-center my-9">{{ current_topic.nome_topico }}</h1>
 
         <img id="img-topic" class="w-3/4 mx-auto mb-6 rounded-2xl" src="{{ current_topic.imagem.url }}" alt="{{ current_topic.nome_topico }}">
 
@@ -50,7 +50,7 @@
 
             <div class="flex justify-center mb-5">
                 <a href="{{ current_topic.fonte_ferramenta }}" target="_blank">
-                    <button type="submit" class="flex w-11/12 px-5 py-3 mx-auto text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Veja mais sobre as principais ferramentas de {{ current_topic.nome_topico }}</button>
+                    <button type="submit" class="flex w-auto px-5 py-3 mx-auto text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Veja mais sobre as principais ferramentas de {{ current_topic.nome_topico }}</button>
                 </a>
             </div>
         </div>
