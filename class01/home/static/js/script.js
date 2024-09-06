@@ -24,29 +24,53 @@ const titleTopic = document.querySelector('#title-topic');
 const textTopic = document.querySelector('#text-topic');
 
 function startAnimationText(elem) {
-  gsap.to(elem, {
+  gsap.fromTo(elem, {
+    opacity: 0,
+    ease: "power1.out"
+  },{
     opacity: 1,
     duration: 2,
-    ease: "power1.out",
     scrollTrigger: {
       trigger: sectionTwo,
       start: "top 450px",
       end: "center 450px",
       scrub: true,
-    },
-  });
+    }
+  })
 }
-startAnimationText(titleTopic);
-startAnimationText(textTopic);
+
+let largura = window.innerWidth;
+
+if (largura > 768) {
+  startAnimationText(titleTopic);
+  startAnimationText(textTopic);
+}
+
+
 
 const cards = document.querySelectorAll('.card')
 
-ScrollTrigger.batch(cards, {
-    onEnter: batch => gsap.to(batch,{
-        autoAlpha: 1,
-        stagger: 0.1
-    }),
-});
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  // GSAP e ScrollTrigger estão disponíveis
+  ScrollTrigger.batch(cards, {
+      onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1, // Opacidade e visibilidade
+          stagger: 0.1  // Animação escalonada
+      }),
+  });
+} else {
+  // GSAP ou ScrollTrigger não estão disponíveis
+  cards.forEach(card => {
+      card.style.opacity = '1';
+  });
+}
+
+// ScrollTrigger.batch(cards, {
+//     onEnter: batch => gsap.to(batch,{
+//         autoAlpha: 1,
+//         stagger: 0.1
+//     }),
+// });
 
 // Animações na página de tópicos
 
@@ -124,7 +148,7 @@ cardTools.forEach(cardTool => {
     scrollTrigger: {
       trigger: cardTool, // <-- Use o elemento individual aqui
       start: 'top 80%',
-      end: 'bottom 95%%',
+      end: 'bottom 95%',
       scrub: true
     }
   });
