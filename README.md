@@ -72,6 +72,12 @@
     python manage.py migrate
     ```
 
+    ### Instale as dependências do Django-Tailwind com o seguinte comando:
+    
+    ```bash
+    python manage.py tailwind install
+    ```
+
     ### Agora construa toda a estilização do site usando o Tailwind CSS
 
     ```bash
