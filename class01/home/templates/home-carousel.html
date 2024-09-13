@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    {% tailwind_css %}
+</head>
+<body class="flex items-center justify-center">
+    
+    {% block content %}
+
+        <section id="section1" class="flex flex-col items-center w-full mx-auto bg-gray-900 lg:flex-row lg:h-screen xs:h-auto">
+            <div id="text-home" class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
+                <div class="flex flex-col xs:w-full">
+                    <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
+                    <p class="mt-4 mb-2 text-lg text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
+                </div>
+
+                <div class="flex xs:flex-row">
+                    <a href="{% url 'exibir_topico' 1 %}">
+                        <button type="submit" class="px-5 py-3 mt-6 ml-10 text-base font-medium text-center text-blue-700 transition duration-300 bg-white rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-800">Comece agora</button>
+                    </a>
+
+                    <a href="#section3">
+                        <button type="submit" class="px-5 py-3 mt-6 ml-6 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Fale conosco</button>
+                    </a>
+                </div>
+            </div>
+
+            <div id="img-home" class="flex flex-col w-1/2 h-auto">
+                
+                {% include 'image.html' %}
+                <span align="right"><a class="mr-8 text-xs cursor-pointer" target="_blank" href="https://storyset.com/online">Online illustrations by Storyset</a></span>
+            </div>
+        </section>
+
+        <section id="section2" class="flex flex-col w-full py-20 mx-auto">
+            <h2 id="title-topic" class="my-5 text-4xl font-medium text-center">Explore tópicos de programação</h2>
+            <p id="text-topic" class="my-5 text-lg text-center">Mergulhe nos principais conceitos e habilidades necessárias para se tornar um programador de sucesso!</p>
+
+            <div class="text-gray-100 bg-gray-600 js-carousel">
+                <div class="flex flex-col w-11/12 p-20 py-20 mx-auto gap-9">
+              
+                  <div class="flex flex-row items-center justify-center gap-4">
+                    <div class="cursor-pointer js-carousel-btn-left">Left</div>
+                    <div class="flex flex-row h-full max-w-full overflow-x-hidden js-carousel-viewport {% if forloop.first %}active{% endif %}">
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.0.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.0.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.1.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.1.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.2.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.2.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.3.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.3.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.4.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.4.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.5.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.5.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.6.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.6.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.7.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.7.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="flex w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 mx-auto my-auto text-center h-3/4" src="{{ topicos.8.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.8.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <!-- <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4" src="{{ topicos.9.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.9.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div>
+                      <div class="flex flex-col items-center justify-center flex-shrink-0 w-4/12 gap-4 text-center p-9">
+                        <div class="w-64 h-64 bg-gray-300 rounded-full">
+                            <img class="w-3/4 text-center" src="{{ topicos.10.icon_topico.url }}" alt="">
+                        </div>
+                        <span class="text-2xl font-semibold">{{ topicos.10.nome_topico }}</span>
+                        <span class="text-2xl">consectetur adipiscing elit</span>
+                      </div> -->
+                    </div>
+                    <div class="cursor-pointer js-carousel-btn-right">Right</div>
+                  </div>
+                </div>
+              </div>
+
+        </section>
+
+        <section id="section3" class="flex">
+            <div class="relative w-full mx-auto ml-2 mr-2 bg-gray-700 sm:pt-20 rounded-3xl 2xl:pt-40">
+            
+                <div class="absolute top-0 right-0 hidden w-1/2 h-full bg-gray-600 border-2 rounded-3xl lg:block"></div>
+
+                <div class="container px-4 mx-auto">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="flex flex-wrap -mx-4">
+                            <div class="relative w-full px-4 pb-20 overflow-hidden lg:w-1/2">
+                                <div class="relative max-w-md mx-auto">
+                                    <div class="pb-16 mb-8 border-b border-gray-300">
+                                        <p class="text-lg font-bold text-blue-400">Tem uma dúvida?</p>
+                                        <h2 class="mt-10 mb-16 text-5xl font-bold text-white font-heading">Fale conosco</h2>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <span class="flex items-center justify-center mr-2 bg-blue-500 rounded-lg min-w-12 min-h-12"><ion-icon class="w-4 h-4" name="call"></ion-icon></span>
+                                                <p class="text-lg font-bold text-white">(38)99231-1967</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <span class="flex items-center justify-center mr-2 bg-blue-500 rounded-lg min-w-12 min-h-12"><ion-icon class="w-4 h-4" name="mail"></ion-icon></span>
+                                                <p class="flex text-lg font-bold text-white">arthur.devti@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-8 py-6 mb-4 bg-gray-600 rounded-lg">
+                                            <div class="flex items-center">
+                                                <a href="https://maps.app.goo.gl/xJWpThG58gFkztvV6" target="_blank">
+                                                <span class="flex items-center justify-center mr-2 bg-blue-500 rounded-lg min-w-12 min-h-12"><ion-icon class="w-4 h-4" name="location"></ion-icon></span>
+                                            </a>
+                                                <p class="text-lg font-bold text-white">Curvelo - MG</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="max-w-xs">
+                                        <p class="text-gray-400">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada tellus eu lacus elementum, vel efficitur nisi accumsan. Ut efficitur dignissim gravida.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative w-full px-4 pb-20 lg:w-1/2">
+                                <div class="max-w-md mx-auto lg:ml-20">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <h3 class="mb-10 text-2xl font-bold text-white">Envie uma mensagem</h3>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Nome
+                                            </label> -->
+                                            {{ form.nome }}
+                                            {% if form.nome.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.nome.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Email
+                                            </label> -->
+                                            {{ form.email }}
+                                            {% if form.email.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.email.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.assunto.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Assunto
+                                            </label> -->
+                                            {{ form.assunto }}
+                                            {% if form.assunto.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.assunto.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="mb-4 text-gray-800">
+                                            <!-- <label for="{{ form.mensagem.id_for_label }}" class="block text-sm font-medium text-gray-200">
+                                                Mensagem
+                                            </label> -->
+                                            {{ form.mensagem }}
+                                            {% if form.mensagem.errors %}
+                                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span class="font-medium">Erro!</span> {{ form.mensagem.errors }}.
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <!-- <div class="flex mb-10">
+                                            <input type="checkbox" name="check" id="check">
+                                            <p class="max-w-xs pl-4 text-sm text-gray-300">Ao aceitar, você concorda com nossos Termos, Política de Dados e Cookies</p>
+                                        </div> -->
+                                        <button type="submit" class="flex px-12 py-4 mx-auto font-bold text-white transition bg-blue-700 rounded-full hover:bg-white hover:text-blue-700 durantion-300">Enviar mensagem</button>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </section>
+
+        <section id="section4" class="flex flex-col w-full mx-auto mt-10 rounded-tl-2xl bg-slate-900">
+            <div class="flex flex-col min-h-auto bg-slate-900">
+                <div class="py-12 bg-slate-900 md:py-24 lg:py-32">
+                    <div class="container grid gap-8 px-4 mx-auto md:px-6 md:grid-cols-2">
+                        <div class="space-y-4">
+                            <h2 class="text-3xl font-bold text-gray-200 md:text-4xl">About Us</h2>
+                            <p class="text-gray-200 md:text-xl">Learn more about our mission and values.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4">
+                                    <img class="w-6 h-6 text-gray-200" src="{% static 'img/book-svgrepo-com.png' %}" alt="">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-200">Our Mission</h4>
+                                        <p class="text-gray-200">To provide high-quality educational resources and support for learners of all levels.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <img class="w-6 h-6 text-gray-200" src="{% static 'img/lamp-svgrepo-com.png' %}" alt="">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-200">Our Values</h4>
+                                        <p class="text-gray-200">Commitment to excellence, innovation, and accessibility.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <img class="w-6 h-6 text-gray-200" src="{% static 'img/team-svgrepo-com.png' %}" alt="">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-200">Our Team</h4>
+                                        <p class="text-gray-200">A dedicated group of educators</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <img src="{% static 'img/benjamin-unsplash.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+</body>
+</html>
