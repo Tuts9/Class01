@@ -5,7 +5,7 @@ from .forms import *
 
 # Create your views here.
 def home(request):
-    topicos = Topico.objects.all()
+    topicos = Topico.objects.order_by('?')[:6]
     new_suport_form = []
     
     if request.method == 'POST':
@@ -20,6 +20,13 @@ def home(request):
     context = {'topicos': topicos, 'form': new_suport_form}
 
     return render(request, 'home.html', context)
+
+def all_topics(request):
+    topicos = Topico.objects.all()
+
+    context = {'topicos': topicos}
+
+    return render(request, 'all_topics.html', context)
 
 def topic_list(request, topico_id):
     current_topic = get_object_or_404(Topico, id=topico_id)

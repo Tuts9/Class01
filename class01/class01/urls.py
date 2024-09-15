@@ -7,6 +7,7 @@ from home.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('all-topics/', all_topics, name='all_topics'),
     path('topico/<int:topico_id>/', topic_list, name='exibir_topico'),
 
     path("__reload__/", include("django_browser_reload.urls")),
