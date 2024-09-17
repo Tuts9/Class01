@@ -8,17 +8,21 @@
     
     {% block content %}
 
+    <div class="flex w-full h-16">
+        <h2 class="mx-auto my-auto text-4xl text-gray-900 dark:text-white">Todos os tópicos disponíveis</h2>
+    </div>
+
     <div class="flex w-full mx-auto my-10">
         <ul class="grid mx-auto my-6 lg:grid-cols-6 gap-y-20 xs:grid-cols-2">
             {% for topico in topicos %}
                 <li class="flex flex-row items-center h-24 px-2 mt-12">
-                    <div class="justify-between w-56 transition duration-300 transform bg-gray-900 rounded-lg shadow-lg opacity-0 card hover:scale-110 hover:shadow-xl min-h-52">
-                        <div class="flex items-center justify-center mx-auto my-auto rounded-lg bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200">
+                    <div class="justify-between w-56 transition duration-300 transform border-2 border-gray-900 shadow-lg opacity-0 bg-gray-50 dark:bg-gray-900 rounded-xl card hover:scale-110 hover:shadow-xl min-h-52">
+                        <div class="flex items-center justify-center mx-auto my-auto rounded-xl bg-gradient-to-br from-sky-200 via-sky-400">
                             <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="" title="{{ topico.nome_topico }}">
                         </div>
         
                         <div class="flex flex-col px-5 pt-2">
-                            <h2 class="font-bold text-center text-white">{{ topico.nome_topico }}</h2>
+                            <h2 class="font-bold text-center text-gray-900 dark:text-white">{{ topico.nome_topico }}</h2>
                             <a class="flex justify-center w-full mx-auto" href="{% url 'exibir_topico' topico.id %}">
                                 <button class="flex justify-center w-full px-2 py-1 mx-auto mt-2 text-white transition duration-150 bg-blue-700 rounded-md cursor-pointer hover:bg-blue-900" type="button">Explore</button>
                             </a>
@@ -27,7 +31,7 @@
                 </li>
             {% endfor %}
         </ul>
-    </div> 
+    </div>
 
     {% endblock %}
 
