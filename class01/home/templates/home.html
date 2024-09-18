@@ -11,18 +11,19 @@
         <section id="section1" class="flex flex-col items-center w-full mx-auto bg-gray-50 dark:bg-gray-900 lg:flex-row lg:h-screen xs:h-auto">
             <div id="text-home" class="flex flex-col mx-10 mb-16 lg:w-1/2 xs:w-4/5">
                 <div class="flex flex-col text-gray-900 xs:w-full dark:text-white">
-                    <h1 class="text-4xl font-medium">Desbloqueie seu potencial de programação!</h1>
-                    <p class="mt-4 mb-2 text-lg text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
+                    <h1 class="text-4xl font-medium text-center md:text-left">Desbloqueie seu potencial de programação!</h1>
+                    <p class="mt-4 mb-2 text-lg text-center md:text-left text-wrap">Explore os fundamentos da programação e inicie sua jornada dentro da indústria tech.</p>
                 </div>
 
                 <div class="flex xs:flex-row">
                     <a href="{% url 'exibir_topico' 1 %}">
-                        <button type="submit" class="flex flex-row px-5 py-3 mt-6 ml-10 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">Comece agora
+                        <button type="submit" class="flex flex-row px-5 py-3 mt-6 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">Comece agora
                             <span class="my-auto ml-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
                                   </svg>                                  
-                            </span></button>
+                            </span>
+                        </button>
                     </a>
 
                     <a href="#section3">
@@ -31,7 +32,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
                                   </svg>                                  
-                            </span></button>
+                            </span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -45,7 +47,7 @@
 
         <section id="section2" class="flex flex-col w-full py-20 mx-auto text-gray-900 bg-white dark:bg-slate-800 dark:text-white">
             <h2 id="title-topic" class="my-5 text-4xl font-medium text-center">Explore tópicos de programação</h2>
-            <p id="text-topic" class="my-5 text-lg text-center">Mergulhe nos principais conceitos e habilidades necessárias para se tornar um programador de sucesso!</p>
+            <p id="text-topic" class="mx-4 my-5 text-lg text-center">Mergulhe nos principais conceitos e habilidades necessárias para se tornar um programador de sucesso!</p>
 
             <div class="flex w-full mx-auto">
                 <ul class="grid mx-auto my-6 lg:grid-cols-6 gap-y-20 xs:grid-cols-2">
