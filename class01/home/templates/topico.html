@@ -29,17 +29,17 @@
 
         <div class="w-full bg-gray-200 dark:bg-gray-900 py-7">
             {% for ferramenta in ferramentas %}
-                <div id="card-tool" class="px-4 py-8 mx-auto mb-8 bg-slate-700 rounded-3xl sm:max-w-xl xs:w-11/12 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div id="card-tool" class="px-4 py-8 mx-auto mb-8 text-gray-900 bg-slate-300 dark:bg-slate-700 dark:text-white rounded-3xl sm:max-w-xl xs:w-11/12 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div class="flex flex-col items-center justify-between w-full mb-10 tool lg:flex-row">
                         <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
                             <div class="max-w-xl mb-6">
                         
-                                <h2 class="max-w-lg mt-6 mb-6 font-sans text-3xl font-medium tracking-tight text-white sm:mt-0 sm:text-4xl sm:leading-none">{{ ferramenta.nome_ferramenta }}</h2>
-                                <p class="w-10/12 text-base text-white md:text-lg">{{ ferramenta.informacao_ferramenta }}</p>
+                                <h2 class="max-w-lg mt-6 mb-6 font-sans text-3xl font-medium tracking-tight sm:mt-0 sm:text-4xl sm:leading-none">{{ ferramenta.nome_ferramenta }}</h2>
+                                <p class="w-10/12 text-base md:text-lg">{{ ferramenta.informacao_ferramenta }}</p>
                             </div>
                             <div className='space-x-4'>
                                 <a href="{{ ferramenta.link_ferramenta }}" target="_blank">
-                                    <button class="inline-flex items-center p-2 text-lg font-medium transition duration-300 border-2 border-neutral-300 hover:border-neutral-400 rounded-xl text-neutral-300 hover:text-neutral-400">Conheça →</button> 
+                                    <button class="inline-flex items-center p-2 text-lg font-medium transition duration-300 border-2 border-neutral-700 hover:border-blue-500 rounded-xl text-neutral-700 dark:text-neutral-200 dark:border-neutral-200 dark:hover:text-neutral-200 hover:text-neutral-500">Conheça →</button> 
                                 </a>
                             </div>
                         </div>
