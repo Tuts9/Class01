@@ -90,82 +90,6 @@
     python manage.py runserver
     ```
 
-## Instalação e configuração (Criando seu próprio projeto)
-
-- ## Requisitos
-
-    Certifique-se de que tenha os seguintes requisitos instalados em seu sistema
-    
-    - Python (versões a partir da 3.x)
-
-- ## Crie seu próprio projeto
-
-    ### Dentro do seu computador crie uma pasta com o nome do seu projeto
-
-    ### Com seu editor de código aberto prepare o ambiente de desenvolvimento crie um ambiente virtual
-
-    ```bash
-    python -m venv .venv
-    ```
-
-    ### Logo em seguida ative seu ambiente virtual
-
-    ```bash
-    .venv\Scripts\activate
-    ```
-
-    ### Instale o Django dentro do seu ambiente
-
-    ```bash
-    pip install django
-    ```
-
-    ### Já com o Django instalado crie o projeto com o seguinte comando
-
-    ```bash
-    django-admin startproject class01
-    ```
-
-    ### Em seguida entre na pasta do projeto
-
-    ```bash
-    cd class01
-    ```
-
-    ### Crie o app do seu projeto
-
-    ```bash
-    python manage.py startapp myapp
-    ```
-
-    ### Teste a sua aplicação no 'localhost'
-
-    ```bash
-    python manage.py runserver
-    ```
-
-    ### Criando as migrações do banco de dados
-
-    ```bash
-    python manage.py makemigrations
-    ```
-
-    ### Aplique as migrações para o banco de dados
-
-    ```bash
-    python manage.py migrate
-    ```
-
-    ### Crie um super usuário para acesso ao painel de administrador
-
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-    ### Finalização
-
-    Para continuar o desenvolvimento do seu projeto consulte a documentação oficial do Django, também disponível em PT-BR, e construa seu projeto do seu jeito. [Django Docs](https://docs.djangoproject.com/pt-br/5.0/intro/tutorial01/)
-
 ## Estrutura do projeto
 
 ### Arquitetura MVT
@@ -184,13 +108,6 @@
 - No caso de projetos usando Tailwind CSS, caso esteja usando o módulo de Python `django-tailwind` também será possível encontrar uma pasta chamada `themes` que é onde ficam todos os arquivos de configuração do Tailwind CSS que por sua vez usa também o `Node.js`.
 
 ## Configuração Django
-
-### Arquivo 'settings.py'
-- Em `Static_URL = 'static/'`, vamos criar o `static_Root`. Inserir abaixo: `static_Root = os.path.join(BASE_DIR, 'staticfiles)`. Importe a biblioteca no início do código: `import os`.
-- No tópico templates TEMPLATES no arquivo settings.py, insira: Na linha `dirs['templates]`.
-- Após criar o seu app adicione o nome do seu app em `INSTALLED_APPS`.
-- Configure a linguagem do projeto para PT-BR como padrão, em `LANGUAGE_CODE` adicione `'pt-br'`,
-e em `TIME_ZONE` adicione `'America/Sao_Paulo'`.
 
 ### URL's
 
