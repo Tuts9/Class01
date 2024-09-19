@@ -9,25 +9,25 @@
     
     {% block content %}
 
-        <h1 id="title-tool" class="text-5xl font-semibold text-center my-9">{{ current_topic.nome_topico }}</h1>
+        <h1 id="title-tool" class="text-5xl font-semibold text-center text-gray-900 my-9 dark:text-white">{{ current_topic.nome_topico }}</h1>
 
         <img id="img-topic" class="w-3/4 mx-auto mb-6 rounded-2xl" src="{{ current_topic.imagem.url }}" alt="{{ current_topic.nome_topico }}">
 
-        <p class="w-11/12 mx-auto mb-8 text-lg">{{ current_topic.introducao }}</p>
+        <p class="w-11/12 mx-auto mb-8 text-lg text-gray-900 dark:text-white">{{ current_topic.introducao }}</p>
 
         <div class="flex justify-center my-5">
             <a href="{{ current_topic.fonte }}" target="_blank">
-                <button type="submit" class="px-5 py-3 text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Veja mais sobre {{ current_topic.nome_topico }}</button>
+                <button type="submit" class="flex flex-row px-5 py-3 mt-6 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white">Veja mais sobre {{ current_topic.nome_topico }}</button>
             </a>
         </div>
 
-        <div id="section-tools" class="w-full py-10 mt-8 bg-gray-900 rounded-tl-2xl rounded-tr-2xl">
+        <div id="section-tools" class="w-full py-10 mt-8 text-gray-900 bg-gray-200 dark:bg-gray-900 dark:text-white rounded-tl-2xl rounded-tr-2xl">
             <h2 id="title-tools" class="mx-2 text-4xl font-medium text-center mb-9">Principais ferramentas para <span class="text-blue-500">{{ current_topic.nome_topico }}</span></h2>
 
             <p id="text-tools" class="w-11/12 mx-auto mb-4 text-lg">{{ current_topic.texto_ferramenta }}</p>
         </div>
 
-        <div class="w-full bg-gray-900 py-7">
+        <div class="w-full bg-gray-200 dark:bg-gray-900 py-7">
             {% for ferramenta in ferramentas %}
                 <div id="card-tool" class="px-4 py-8 mx-auto mb-8 bg-slate-700 rounded-3xl sm:max-w-xl xs:w-11/12 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div class="flex flex-col items-center justify-between w-full mb-10 tool lg:flex-row">
@@ -50,7 +50,8 @@
 
             <div class="flex justify-center mb-5">
                 <a href="{{ current_topic.fonte_ferramenta }}" target="_blank">
-                    <button type="submit" class="flex w-auto px-5 py-3 mx-auto text-base font-medium text-center text-white transition duration-300 bg-blue-700 rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:focus:ring-blue-800">Veja mais sobre as principais ferramentas de {{ current_topic.nome_topico }}</button>
+                    <button type="submit" class="flex flex-row px-5 py-3 mt-6 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">
+                        Veja mais sobre as principais ferramentas de {{ current_topic.nome_topico }}</button>
                 </a>
             </div>
         </div>
