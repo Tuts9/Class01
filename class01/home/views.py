@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext
+from django.contrib import messages
 from .models import *
 from .forms import *
 
@@ -12,6 +13,7 @@ def home(request):
         new_suport_form = SuporteModelForm(request.POST)
         if new_suport_form.is_valid():
             new_suport_form.save()
+            messages.success(request, 'Mensagem enviada com sucesso!')
             return redirect('home')
         
     else:
