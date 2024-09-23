@@ -23,8 +23,33 @@ def home(request):
 
 def all_topics(request):
     topicos = Topico.objects.all()
+    form_topic = FiltroTopico(request.GET)
 
-    context = {'topicos': topicos}
+    if form_topic.is_valid():
+        categoria = form_topic.cleaned_data['categoria']
+        nivel_experiencia = form_topic.cleaned_data['nivel_experiencia']
+        funcao = form_topic.cleaned_data['funcao']
+        ordernar_por = form_topic.cleaned_data['ordenar_por']
+        search = request.GET.get('search')
+    
+        if search:
+            topicos = Topico.objects.filter(nome_topico__icontains=search)
+
+        if categoria:
+            topicos = Topico.objects.filter(categorias=categoria)
+        
+        if nivel_experiencia:
+            topicos = Topico.objects.filter(nivel_experiencia=nivel_experiencia)
+
+        if funcao:
+            topicos = Topico.objects.filter(funcao=funcao)
+
+        if ordernar_por:
+            topicos = Topico.objects.order_by(ordernar_por)
+
+        redirect('all_topics')
+
+    context = {'topicos': topicos, 'form_topic': form_topic}
 
     return render(request, 'all_topics.html', context)
 
