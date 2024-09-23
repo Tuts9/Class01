@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     {% tailwind_css %}
+    {% static 'css/cards.css' %}
 </head>
 <body class="flex items-center justify-center">
     
@@ -49,25 +50,22 @@
             <h2 id="title-topic" class="my-5 text-4xl font-medium text-center">Explore tópicos de programação</h2>
             <p id="text-topic" class="mx-4 my-5 text-lg text-center">Mergulhe nos principais conceitos e habilidades necessárias para se tornar um programador de sucesso!</p>
 
-            <div class="flex w-full mx-auto">
-                <ul class="grid mx-auto my-6 lg:grid-cols-6 gap-y-20 xs:grid-cols-2">
+            <div class="containers">
+                <div class="card__container">
                     {% for topico in topicos %}
-                        <li class="flex flex-row items-center h-24 px-2 mt-12">
-                            <div class="justify-between w-56 transition duration-300 transform border-2 border-gray-900 shadow-lg opacity-0 bg-gray-50 dark:bg-gray-900 rounded-xl card hover:scale-110 hover:shadow-xl min-h-52">
-                                <div class="flex items-center justify-center mx-auto my-auto rounded-xl bg-gradient-to-br from-sky-200 via-sky-400">
-                                    <img class="w-20 h-20" src="{{ topico.icon_topico.url }}" alt="" title="{{ topico.nome_topico }}">
-                                </div>
-                
-                                <div class="flex flex-col px-5 pt-2">
-                                    <h2 class="font-bold text-center text-gray-900 dark:text-white">{{ topico.nome_topico }}</h2>
-                                    <a class="flex justify-center w-full mx-auto" href="{% url 'exibir_topico' topico.id %}">
-                                        <button class="flex justify-center w-full px-2 py-1 mx-auto mt-2 text-white transition duration-150 bg-blue-700 rounded-md cursor-pointer hover:bg-blue-900" type="button">Explore</button>
-                                    </a>
-                                </div>
+                        <article class="card__article bg-teste">
+                            <img src="{{ topico.icon_topico.url }}" alt="image" class="card__img">
+            
+                            <div class="card__data">
+                                {% for tag in topico.categorias.all %}
+                                    <li class="text-xs text-green-700 card__description">#{{ tag.nome }}</li>
+                                {% endfor %}
+                                <h2 class="card__title">{{ topico.nome_topico }}</h2>
+                                <a href="{% url 'exibir_topico' topico.id %}" class="text-base text-blue-500 card__button">Read More</a>
                             </div>
-                        </li>
+                        </article>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
 
             <div class="flex mx-auto mt-16">
@@ -132,7 +130,7 @@
                                 </div>
                             </div>
 
-                            <div class="relative w-full px-4 pb-20 lg:w-1/2">
+                            <div class="relative w-full px-4 pb-20 my-auto lg:w-1/2">
                                 <div class="max-w-md mx-auto lg:ml-20">
                                     <form method="post">
                                         {% csrf_token %}

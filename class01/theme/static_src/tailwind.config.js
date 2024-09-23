@@ -47,6 +47,9 @@ module.exports = {
             fontFamily: {
                 poppins: ['"Poppins"', 'sans-serif'],
             },
+            backgroundImage: {
+                teste: "url(https://www.comocrearunapaginaweb.com.mx/wp-content/uploads/2022/12/ideas-bootstrap.jpg)"
+            }
         },
         screens: {
             'xs': '300px',
