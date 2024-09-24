@@ -15,12 +15,13 @@
 
 <body class="leading-normal tracking-normal bg-slate-50 dark:bg-slate-800 font-poppins">
     
+  <!-- Navbar -->
   <nav class="sticky top-0 z-20 w-full border-b border-gray-600 bg-gray-50 dark:bg-gray-900 start-0">
     <!-- DIV de todos elementos do navbar -->
     <div class="flex flex-wrap items-center justify-around max-w-screen-xl p-4 mx-auto">
       <!-- Logo Class01 -->
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={% static 'img/logo.png' %} class="h-10" alt="Class01 Logo">
+          <img src="{% static 'img/logo.png' %}" class="h-10" alt="Class01 Logo">
           <span class="self-center text-2xl font-semibold text-gray-900 whitespace-nowrap dark:text-white">Class<span class="text-blue-600">01</span></span>
       </a>
       <!-- Botão de menu mobile -->
@@ -71,44 +72,46 @@
     </div>
   </nav>
 
-<main>{% block content %} {% endblock %}</main>
+  <!-- Seção principal do site -->
+  <main>{% block content %} {% endblock %}</main>
 
-<!-- Botão flutuante -->
-<button id="chatbot-button" class="fixed px-4 py-2 font-bold text-white bg-blue-500 rounded bottom-4 right-4 hover:bg-blue-700">Chatbot</button>
+  <!-- Botão flutuante -->
+  <button id="chatbot-button" class="fixed px-4 py-2 font-bold text-white bg-blue-500 rounded bottom-4 right-4 hover:bg-blue-700">Chatbot</button>
 
-<!-- Janela do chatbot -->
-<div id="chatbot-window" class="fixed hidden p-4 bg-white shadow-md bottom-4 right-4 w-80 h-96">
-  <h2 class="mb-4 text-lg font-bold">Chatbot</h2>
-  <input id="user-input" type="text" placeholder="Digite sua mensagem..." class="w-full p-2 mb-4 border border-gray-400 rounded">
-  <button id="send-button" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Enviar</button>
-  <div id="chat-log" class="mt-4"></div>
-</div>
-
-<footer class="m-4 bg-white rounded-lg shadow dark:bg-slate-900">
-  <div class="w-full max-w-screen-xl p-4 mx-auto md:flex md:items-center md:justify-between">
-    <span class="mx-auto text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#hero" class="hover:underline">Class01™</a>. All Rights Reserved. Developed by Arthur Rodrigues</span>
+  <!-- Janela do chatbot -->
+  <div id="chatbot-window" class="fixed hidden p-4 bg-white shadow-md bottom-4 right-4 w-80 h-96">
+    <h2 class="mb-4 text-lg font-bold">Chatbot</h2>
+    <input id="user-input" type="text" placeholder="Digite sua mensagem..." class="w-full p-2 mb-4 border border-gray-400 rounded">
+    <button id="send-button" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Enviar</button>
+    <div id="chat-log" class="mt-4"></div>
   </div>
-</footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <!-- Rodapé -->
+  <footer class="m-4 bg-white rounded-lg shadow dark:bg-slate-900">
+    <div class="w-full max-w-screen-xl p-4 mx-auto md:flex md:items-center md:justify-between">
+      <span class="mx-auto text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#hero" class="hover:underline">Class01™</a>. All Rights Reserved. Developed by Arthur Rodrigues</span>
+    </div>
+  </footer>
 
-<script src="{% static 'js/theme.js' %}"></script>
-<script src="{% static 'js/animation.js' %}"></script>
-<script src="{% static 'js/chatbot.js' %}"></script>
-<script src="{% static 'js/typing.js' %}"></script>
+  <!-- CDN's -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+  <!-- Scripts -->
+  <script src="{% static 'js/animation-gsap.js' %}"></script>
+  <script src="{% static 'js/chatbot.js' %}"></script>
+
+  <!-- Ferramenta de acessibilidade -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
   </div>
-</div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
 
 </body>
 </html>

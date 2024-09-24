@@ -1,4 +1,4 @@
-// Animações para a página inicial
+// Animações para o hero section
 const textHome = document.querySelector('#text-home');
 const imgHome = document.querySelector('#img-home');
 
@@ -18,36 +18,68 @@ function startAnimationHome(elem) {
 }
 startAnimationHome(textHome);
 startAnimationHome(imgHome);
+// Fim das animações do hero section
 
-const sectionTwo = document.querySelector('#section2');
-const titleTopic = document.querySelector('#title-topic');
-const textTopic = document.querySelector('#text-topic');
+// ---------------------------------------------------------------------
 
-function startAnimationText(elem) {
+// Animações na página de cada tópico
+const titleTool = document.querySelector('#title-tool');
+const imgTopic = document.querySelector('#img-topic');
+
+// Animação do título
+function startAnimationTextTopic(elem) {
   gsap.fromTo(elem, {
     opacity: 0,
+    y: -150,
     ease: "power1.out"
-  },{
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 2
+  });
+}
+startAnimationTextTopic(titleTool);
+
+// Animação da imagem
+function startAnimationImg(elem) {
+  gsap.fromTo(elem, {
+    x: -500,
+    opacity: 0,
+    ease: 'power1.out'
+  }, {
+    x: 0,
+    opacity: 1,
+    duration: 1.7
+  })
+}
+startAnimationImg(imgTopic);
+
+// Animação de entrada dos cards de ferramentas de cada tópico
+const cardTools = document.querySelectorAll('#card-tool');
+
+cardTools.forEach(cardTool => {
+  gsap.fromTo(cardTool, {
+    x: -600,
+    opacity: 0,
+    ease: 'power1.out'
+  }, {
+    x: 0,
     opacity: 1,
     duration: 2,
     scrollTrigger: {
-      trigger: sectionTwo,
-      start: "top 450px",
-      end: "center 450px",
-      scrub: true,
+      trigger: cardTool,
+      start: 'top 80%',
+      end: 'bottom 95%',
+      scrub: true
     }
-  })
-}
+  });
+});
 
-let largura = window.innerWidth;
+// Fim das animações da página de cada tópico
 
-if (largura > 768) {
-  startAnimationText(titleTopic);
-  startAnimationText(textTopic);
-}
+// ------------------------------------------------------------------------------------------------
 
-
-
+// Animação dos cards da página de todos os tópicos -- EM BREVE SERÃO ALTERADOS
 const cards = document.querySelectorAll('.card')
 
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -61,95 +93,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 } else {
   // GSAP ou ScrollTrigger não estão disponíveis
   cards.forEach(card => {
-      card.style.opacity = '1';
+      card.classList.remove = 'opacity-0';
+      card.classList.add = 'opacity-1';
   });
 }
-
-// ScrollTrigger.batch(cards, {
-//     onEnter: batch => gsap.to(batch,{
-//         autoAlpha: 1,
-//         stagger: 0.1
-//     }),
-// });
-
-// Animações na página de tópicos
-
-const titleTool = document.querySelector('#title-tool');
-const imgTopic = document.querySelector('#img-topic');
-
-
-function startAnimationTextTopic(elem) {
-  gsap.fromTo(elem, {
-    opacity: 0,
-    y: -150,
-    ease: "power1.out"
-  }, {
-    opacity: 1,
-    y: 0,
-    duration: 2,
-    onComplete: () => {
-      // document.querySelector('#title-tool').classList.add('text-blue-700');
-      pass
-    }
-  });
-}
-startAnimationTextTopic(titleTool);
-
-function startAnimationImg(elem) {
-  gsap.fromTo(elem, {
-    x: -500,
-    opacity: 0,
-    ease: 'power1.out'
-  }, {
-    x: 0,
-    opacity: 1,
-    duration: 1.7
-  })
-}
-
-startAnimationImg(imgTopic);
-
-//TODO: Terminar de configurar esta animação
-const titleTools = document.querySelector('#title-tools');
-const sectionTools = document.querySelector('#text-tools');
-
-function startAnimationTitleTools(elem) {
-  gsap.fromTo(elem, {
-    opacity: 0,
-    y: -150,
-    ease: "power1.out"
-  }, {
-    opacity: 1,
-    y: 0,
-    duration: 2,
-    scrollTrigger: {
-      trigger: sectionTools,
-      start: 'top bottom',
-      end: 'center 70%',
-      scrub: true
-    }
-  });
-}
-
-// startAnimationTitleTools(titleTools);
-
-
-const cardTools = document.querySelectorAll('#card-tool');
-
-cardTools.forEach(cardTool => {
-  gsap.fromTo(cardTool, {
-    x: -600,
-    opacity: 0,
-    ease: 'power1.out'
-  }, {
-    x: 0,
-    opacity: 1,
-    duration: 2,
-    scrollTrigger: {
-      trigger: cardTool, // <-- Use o elemento individual aqui
-      start: 'top 80%',
-      end: 'bottom 95%',
-      scrub: true
-    }
-  });
-});

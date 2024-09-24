@@ -18,7 +18,7 @@
 <nav class="sticky top-0 z-20 bg-white border-gray-200 start-0 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={% static 'img/logo.png' %} class="h-10" alt="Class01 Logo">
+            <img src="{% static 'img/logo.png' %}" class="h-10" alt="Class01 Logo">
             <span class="self-center text-2xl font-semibold text-gray-900 whitespace-nowrap dark:text-white">Class<span class="text-blue-600">01</span></span>
         </a>
         <div class="flex md:order-2">
@@ -99,10 +99,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
+<script src="{% static 'js/animation-gsap.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
-<script src="{% static 'js/animation.js' %}"></script>
 <script src="{% static 'js/chatbot.js' %}"></script>
 
 <div vw class="enabled">
