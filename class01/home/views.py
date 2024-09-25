@@ -7,7 +7,17 @@ from .forms import *
 # Create your views here.
 def home(request):
     topicos = Topico.objects.order_by('?')[:6]
+    categorias = Categoria.objects.all()
     new_suport_form = []
+    form_topic = FiltroTopico(request.GET)
+    search = request.GET.get('search')
+
+    if search:
+        topicos = Topico.objects.filter(nome_topico__icontains=search)
+
+        context = {'topicos': topicos, 'form_topic': form_topic}
+
+        return render(request, 'all_topics.html', context)
     
     if request.method == 'POST':
         new_suport_form = SuporteModelForm(request.POST)
@@ -19,7 +29,7 @@ def home(request):
     else:
         new_suport_form = SuporteModelForm()
 
-    context = {'topicos': topicos, 'form': new_suport_form}
+    context = {'topicos': topicos, 'form': new_suport_form, 'categorias': categorias}
 
     return render(request, 'home.html', context)
 
@@ -58,6 +68,15 @@ def all_topics(request):
 def topic_list(request, topico_id):
     current_topic = get_object_or_404(Topico, id=topico_id)
     ferramentas = Ferramenta.objects.filter(topico=current_topic)
+    form_topic = FiltroTopico(request.GET)
+    search = request.GET.get('search')
+
+    if search:
+        topicos = Topico.objects.filter(nome_topico__icontains=search)
+        
+        context = {'topicos': topicos, 'form_topic': form_topic}
+
+        return render(request, 'all_topics.html', context)
 
     try:
         next_topic = Topico.objects.filter(id__gt=current_topic.id).order_by('id').first()
