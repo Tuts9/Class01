@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.template import RequestContext
 from django.contrib import messages
 from .models import *
 from .forms import *
@@ -45,19 +44,19 @@ def all_topics(request):
         search = request.GET.get('search')
     
         if search:
-            topicos = Topico.objects.filter(nome_topico__icontains=search)
+            topicos = topicos.filter(nome_topico__icontains=search)
 
         if categoria:
-            topicos = Topico.objects.filter(categorias=categoria)
+            topicos = topicos.filter(categorias=categoria)
         
         if nivel_experiencia:
-            topicos = Topico.objects.filter(nivel_experiencia=nivel_experiencia)
+            topicos = topicos.filter(nivel_experiencia=nivel_experiencia)
 
         if funcao:
-            topicos = Topico.objects.filter(funcao=funcao)
+            topicos = topicos.filter(funcao=funcao)
 
         if ordernar_por:
-            topicos = Topico.objects.order_by(ordernar_por)
+            topicos = topicos.order_by(ordernar_por)
 
         redirect('all_topics')
 
