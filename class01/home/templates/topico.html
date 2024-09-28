@@ -1,4 +1,4 @@
-{% extends 'base-topics.html' %}
+{% extends 'base-teste.html' %}
 {% load static tailwind_tags %}
 <html lang="en">
 <head>
@@ -23,24 +23,28 @@
                 </div>
             </div>
             <div class="bg-white rounded-lg shadow-md dark:bg-gray-700 dark:text-white">
-                <div class="p-6">
-                    <p class="mb-4 text-lg">{{ current_topic.introducao }}</p>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <div class="flex flex-row divide-x-2 divide-gray-200">
-                            <div class="mr-4">
-                                <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Funções</h2>
-                                {% for func in current_topic.funcao.all %}
-                                    <p class="text-lg">{{ func.nome }}</p>
-                                {% endfor %}
+                <div class="p-6 divide-y-2">
+                    <div class="mb-4">
+                        <p class="mb-4 text-lg">{{ current_topic.introducao|safe }}</p>
+                    </div>
+                    <div class="pt-4">
+                        <div class="flex flex-wrap items-center gap-4">
+                            <div class="flex flex-row divide-x-2 divide-gray-200">
+                                <div class="mr-4">
+                                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Funções</h2>
+                                    {% for func in current_topic.funcao.all %}
+                                        <p class="text-lg">{{ func.nome }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="flex flex-col h-auto pl-4 my-auto">
+                                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Nível de experiência</h2>
+                                    <p class="text-lg">{{ current_topic.nivel_experiencia }}</p>
+                                </div>
                             </div>
-                            <div class="flex flex-col h-auto pl-4 my-auto">
-                                <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Nível de experiência</h2>
-                                <p class="text-lg">{{ current_topic.nivel_experiencia }}</p>
-                            </div>
+                            <a href="{{ current_topic.fonte_topic }}" target="_blank" class="px-4 py-2 ml-auto font-bold text-white bg-blue-600 rounded hover:bg-blue-700">
+                                Official Website
+                            </a>
                         </div>
-                        <a href="{{ current_topic.fonte_topic }}" target="_blank" class="px-4 py-2 ml-auto font-bold text-white bg-blue-600 rounded hover:bg-blue-700">
-                            Official Website
-                        </a>
                     </div>
                 </div>
             </div>
