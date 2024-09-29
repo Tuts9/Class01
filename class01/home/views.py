@@ -69,6 +69,7 @@ def topic_list(request, topico_id):
     ferramentas = Ferramenta.objects.filter(topico=current_topic)
     form_topic = FiltroTopico(request.GET)
     search = request.GET.get('search')
+    topicos = Topico.objects.all()
 
     if search:
         topicos = Topico.objects.filter(nome_topico__icontains=search)
@@ -90,7 +91,8 @@ def topic_list(request, topico_id):
     context = {'current_topic': current_topic,
                'ferramentas': ferramentas,
                'next_topic': next_topic,
-               'previous_topic': previous_topic}
+               'previous_topic': previous_topic,
+               'topicos': topicos}
 
     return render(request, 'topico.html', context)
 
