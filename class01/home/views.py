@@ -6,7 +6,6 @@ from .forms import *
 # Create your views here.
 def home(request):
     topicos = Topico.objects.order_by('?')[:4]
-    categorias = Categoria.objects.all()
     new_suport_form = []
     form_topic = FiltroTopico(request.GET)
     search = request.GET.get('search')
@@ -30,7 +29,7 @@ def home(request):
     else:
         new_suport_form = SuporteModelForm()
 
-    context = {'topicos': topicos, 'form': new_suport_form, 'categorias': categorias, 'first_item': first_item}
+    context = {'topicos': topicos, 'form': new_suport_form, 'first_item': first_item}
 
     return render(request, 'home.html', context)
 
