@@ -10,7 +10,7 @@ def home(request):
     form_topic = FiltroTopico(request.GET)
     search = request.GET.get('search')
     first_item = Topico.objects.all()
-    # first_item = first_item.first().id
+    first_item = first_item.first().id
 
     if search:
         topicos = Topico.objects.filter(nome_topico__icontains=search)
