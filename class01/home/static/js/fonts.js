@@ -3,7 +3,7 @@ const decreaseButton = document.getElementById('decrease-text');
 
 let fontSize = localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 100; // 100% é o tamanho padrão
 const minFontSize = 100;  
-const maxFontSize = 150;  // Define o limite em %
+const maxFontSize = 200;  // Define o limite em %
 
 function applyFontSize() {
     document.documentElement.style.fontSize = fontSize + '%'; // Ajusta a fonte no html

@@ -1,55 +1,29 @@
+// Check the user's saved theme preference on page load
+document.addEventListener('DOMContentLoaded', function () {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+    }
+});
 
-// SELEÇÃO DAS CORES DO NAVBAR ---------------------------------------------------------------
-
-// Variável que busca e armazena todos os botões
-const headerButtons = document.querySelectorAll('nav > div > div > ul > li > a');
-
-// Variável que busca e armazena todos os sections
-const sections = document.querySelectorAll('main > section');
-
-// Função que atualiza a classe dos botões para alteração das cores
-function updateButtonColors() {
-    // Loop que observa cada section conforme o scroll da página desce ou sobe
-    sections.forEach(section => {
-        // Variável que armazena o tamanho do elemento e a posição relativa ao viewport (área visivel para o usuario em tal momento)
-        const sectionTop = section.getBoundingClientRect().top;
-
-        // Verifica se a posição da section está favorável e cobre no mínimo 50% do viewport
-        if (sectionTop >= 0 && sectionTop < window.innerHeight / 2) {
-            // Variável que concatena aos elementos e armazena o valor igual ao link de referência dos botões
-            const sectionId = '/#' + section.id;
-
-            const htmlElement = document.documentElement; // O elemento <html>
-
-            if (htmlElement.classList.contains('dark')) {
-                 // Loop que verifica qual botão está com o link de referência igual ao id do section atual
-                headerButtons.forEach(button => {
-                    if (button.getAttribute('href') === sectionId) {
-                        button.classList.remove('dark:text-white','text-gray-900');
-                        button.classList.add('text-blue-600');
-                    } else {
-                        button.classList.remove('text-blue-600');
-                        button.classList.add('dark:text-white', 'text-gray-900');
-                    }
-                });
-            } else {
-                 // Loop que verifica qual botão está com o link de referência igual ao id do section atual
-                headerButtons.forEach(button => {
-                    if (button.getAttribute('href') === sectionId) {
-                        button.classList.remove('text-gray-900');
-                        button.classList.add('text-blue-600');
-                    } else {
-                        button.classList.remove('text-blue-600');
-                        button.classList.add('text-gray-900');
-                    }
-                });
-            }
-
-           
-        }
-    });
+// Function to toggle the theme and save the preference
+function toggleTheme() {
+    if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    }
 }
-// Chamada de função para atualizar a cor do botão quando a página carrega pela primeira vez
-updateButtonColors();
-// Ação de evento que é ativada quando o scroll desce ou sobe
-window.addEventListener('scroll', updateButtonColors);
+
+// Attach the toggle function to the button with the ID 'theme-toggle-button'
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('theme-toggle-button');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleTheme);
+    }
+});
+

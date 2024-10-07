@@ -16,7 +16,6 @@
                 </div>
 
                 <div class="flex xs:flex-row">
-                    {% if first_item %}
                     <a href="{% url 'exibir_topico' first_item %}">
                         <button type="submit" class="flex flex-row px-5 py-3 mt-6 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">Comece agora
                             <span class="my-auto ml-2">
@@ -26,17 +25,6 @@
                             </span>
                         </button>
                     </a>
-                    {% else %}
-                    <a href="{% url 'all_topics' %}"></a>
-                        <button type="submit" class="flex flex-row px-5 py-3 mt-6 text-base font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">Comece agora
-                            <span class="my-auto ml-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
-                                </svg>                                  
-                            </span>
-                        </button>
-                    </a>
-                    {% endif %}
 
                     <a href="#section3">
                         <button type="submit" class="flex flex-row px-5 py-3 mt-6 ml-6 text-base font-medium text-center text-white transition duration-300 bg-blue-700 border-2 rounded-lg hover:bg-white hover:border-blue-600 hover:text-blue-600 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:border-blue-600 dark:hover:border-white ">Fale conosco
@@ -50,9 +38,8 @@
                 </div>
             </div>
 
-            <div id="img-home" class="flex flex-col w-1/2 h-auto">
-                
-                {% include 'image.html' %}
+            <div id="img-home" class="flex flex-col md:w-1/2 md:h-[600px]">
+                <img src="{% static 'img/pinguim-programador.webp' %}" class="rounded-full" alt="Noot Noot!">
                 <span align="right"><a class="mr-8 text-xs text-gray-900 cursor-pointer dark:text-white" target="_blank" href="https://storyset.com/online">Online illustrations by Storyset</a></span>
             </div>
         </section>
@@ -79,15 +66,15 @@
             <div class="containers">
                 <div class="card__container">
                     {% for topico in topicos %}
-                        <article class="card__article bg-teste">
-                            <img src="{{ topico.icon_topico.url }}" alt="image" class="card__img">
+                        <article class="flex card__article min-h-80 bg-gradient-to-r from-black via-blue-500 to-blue-800 rounded-2xl">
+                            <img src="{{ topico.icon_topico.url }}" alt="image" class="mx-auto my-auto card__img lg:w-fit lg:h-fit">
             
                             <div class="card__data">
                                 {% for tag in topico.categorias.all %}
                                     <li class="text-xs text-green-700 card__description">#{{ tag.nome }}</li>
                                 {% endfor %}
-                                <h2 class="card__title">{{ topico.nome_topico }}</h2>
-                                <a href="{% url 'exibir_topico' topico.id %}" class="text-base text-blue-500 card__button">Veja mais</a>
+                                <p class="text-base font-medium text-black">{{ topico.nome_topico }}</p>
+                                <a href="{% url 'exibir_topico' topico.id %}" class="text-sm text-blue-500 card__button">Veja mais</a>
                             </div>
                         </article>
                     {% endfor %}
@@ -150,7 +137,7 @@
                                     </div>
                                     <div class="max-w-xs">
                                         <p class="text-gray-600 dark:text-gray-400">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada tellus eu lacus elementum, vel efficitur nisi accumsan. Ut efficitur dignissim gravida.
+                                            Se você tiver alguma dúvida, sugestão ou precisar de ajuda, preencha o formulário ao lado e faremos a avaliação o mais breve possível!
                                         </p>
                                     </div>
                                 </div>
@@ -256,6 +243,42 @@
             </div>
         </section>
 
+        <section id="section5" class="px-3 py-8 bg-gray-300 dark:bg-gray-700">
+            <div class="text-center">
+                <h2 class="mb-16 text-2xl font-semibold text-black dark:text-white">NOSSOS PROJETOS</h2>
+                <div class="flex flex-wrap justify-around gap-5 mx-20">
+                    <a href="#" target="_blank" class="w-[360px] h-[460px] bg-cover cursor-pointer relative rounded-3xl img-port port-one">
+    
+                        <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full font-thin text-center text-white transition duration-500 bg-black opacity-0 rounded-2xl hover:opacity-70">
+                            <span class="font-semibold underline">Computacional</span><br>
+                            Cadastro de Empresas
+                        </div>
+                    </a>
+                    <a href="#" target="_blank" class="img-port w-[360px] h-[460px] bg-cover cursor-pointer relative rounded-3xl port-two">
+    
+                        <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full font-thin text-center text-white transition duration-500 bg-black opacity-0 rounded-2xl hover:opacity-70">
+                            <span class="font-semibold underline">Mobile</span><br>
+                            Linguagens de Programação
+                        </div>
+                    </a>
+                    <a href="#" target="_blank" class="img-port w-[360px] h-[460px] bg-cover cursor-pointer relative rounded-3xl port-three">
+    
+                        <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full font-thin text-center text-white transition duration-500 bg-black opacity-0 rounded-2xl hover:opacity-70">
+                            <span class="font-semibold underline">Web</span><br>
+                            Jogo do Mario
+                        </div>
+                    </a>
+                    <a href="#" target="_blank" class="img-port w-[360px] h-[460px] bg-cover cursor-pointer relative rounded-3xl port-four">
+    
+                        <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full font-thin text-center text-white transition duration-500 bg-black opacity-0 rounded-2xl hover:opacity-70">
+                            <span class="font-semibold underline">Web</span><br>
+                            Site finanças
+                        </div>
+                    </a>
+                </div>
+            </div><!--interface-->
+        </section><!--projetos-->
+
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -275,7 +298,7 @@
         
         <script src="{% static 'js/typing.js' %}"></script>
         <script src="{% static 'js/message.js' %}"></script>
-        <script src="{% static 'js/theme.js' %}"></script>
+        <script src="{% static 'js/navbar-color.js' %}"></script>
 
 
     {% endblock %}
