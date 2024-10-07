@@ -115,6 +115,38 @@
 
 <main>{% block content %} {% endblock %}</main>
 
+<!-- FAB Acessibilidade -->
+<div class = "fixed flex items-end justify-end w-24 h-24 p-2 bottom-5 right-5 group">
+  <div class = "absolute z-50 flex items-center justify-center p-3 text-white rounded-full shadow-xl bg-gradient-to-r from-cyan-500 to-blue-800 ">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:rotate-90 transition-all duration-[0.6s]">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.104"></g><g id="SVGRepo_iconCarrier"> <path d="M14 7C14 8.10457 13.1046 9 12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7Z" stroke="#ffffff" stroke-width="1.5"></path> <path d="M18 10C18 10 14.4627 11.5 12 11.5C9.53727 11.5 6 10 6 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M12 12V13.4522M12 13.4522C12 14.0275 12.1654 14.5906 12.4765 15.0745L15 19M12 13.4522C12 14.0275 11.8346 14.5906 11.5235 15.0745L9 19" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+    </svg>
+  </div>
+  <!-- button 1 -->
+  <div class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16 flex p-2 hover:p-3 bg-blue-500 hover:bg-blue-600 text-white">
+    <button title="Monocromático" class="p-2 text-white bg-transparent rounded-lg" onclick="document.documentElement.classList.toggle('grayscale')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m21.71 20.29l-18-18a1 1 0 0 0-1.42 1.42l4 4a12.46 12.46 0 0 0-2 6.57A7.76 7.76 0 0 0 12 22a7.64 7.64 0 0 0 5.87-2.71l2.42 2.42a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42M12 20a5.76 5.76 0 0 1-5.75-5.75a10.3 10.3 0 0 1 1.47-5.11l8.74 8.73A5.67 5.67 0 0 1 12 20M10.85 5.24c.45-.42.85-.75 1.15-1c1.43 1.12 5.13 4.43 5.68 8.88a1 1 0 0 0 1 .88h.12a1 1 0 0 0 .87-1.11c-.78-6.43-6.85-10.55-7.1-10.72a1 1 0 0 0-1.12 0a19 19 0 0 0-1.96 1.61a1 1 0 0 0 1.36 1.46"/></svg>
+    </button>
+  </div>
+  <!-- button 2 -->
+  <div title="Contraste" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-32 flex p-2 hover:p-3 bg-blue-500 hover:bg-blue-600  text-white">
+    <button class="p-2 text-white bg-transparent rounded-lg" onclick="document.documentElement.classList.toggle('invert')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><g fill="currentColor"><path d="m207.8 87.6l-25.37 25.53l4.89 4.88a16 16 0 0 1 0 22.64l-9 9a8 8 0 0 1-11.32 0l-60.68-60.7a8 8 0 0 1 0-11.32l9-9a16 16 0 0 1 22.63 0l4.88 4.89l25-25.11c10.79-10.79 28.37-11.45 39.45-1a28 28 0 0 1 .52 40.19" opacity=".2"/><path d="M224 67.3a35.8 35.8 0 0 0-11.26-25.66c-14-13.28-36.72-12.78-50.62 1.13L142.8 62.2a24 24 0 0 0-33.14.77l-9 9a16 16 0 0 0 0 22.64l2 2.06l-51 51a39.75 39.75 0 0 0-10.53 38l-8 18.41A13.68 13.68 0 0 0 36 219.3a15.92 15.92 0 0 0 17.71 3.35L71.23 215a39.89 39.89 0 0 0 37.06-10.75l51-51l2.06 2.06a16 16 0 0 0 22.62 0l9-9a24 24 0 0 0 .74-33.18l19.75-19.87A35.75 35.75 0 0 0 224 67.3M97 193a24 24 0 0 1-24 6a8 8 0 0 0-5.55.31l-18.1 7.91L57 189.41a8 8 0 0 0 .25-5.75A23.88 23.88 0 0 1 63 159l51-51l33.94 34ZM202.13 82l-25.37 25.52a8 8 0 0 0 0 11.3l4.89 4.89a8 8 0 0 1 0 11.32l-9 9L112 83.26l9-9a8 8 0 0 1 11.31 0l4.89 4.89a8 8 0 0 0 5.65 2.34a8 8 0 0 0 5.66-2.36l24.94-25.09c7.81-7.82 20.5-8.18 28.29-.81a20 20 0 0 1 .39 28.7Z"/></g></svg>
+    </button>
+  </div>
+  <!-- button 3 -->
+  <div title="Diminuir fonte" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-64 flex p-2 hover:p-3 bg-blue-500 hover:bg-blue-600  text-white">
+    <button class="p-2 text-white bg-transparent rounded-lg" id="decrease-text">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.5 13.667L7 7l-2.5 6.667m5 0L10.75 17M9.5 13.667h-5M3.25 17l1.25-3.333M17.25 7.5v9m3.5-3.5l-3.5 3.5l-3.5-3.5"/></svg>
+    </button>
+  </div>
+  <!-- button 4 -->
+  <div title="Aumentar fonte" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-48 flex p-2 hover:p-3 bg-blue-500 hover:bg-blue-600  text-white">
+    <button class="p-2 text-white bg-transparent rounded-lg" id="increase-text">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.5 13.667L7 7l-2.5 6.667m5 0L10.75 17M9.5 13.667h-5M3.25 17l1.25-3.333M17.25 7.5v9m3.5-6L17.25 7l-3.5 3.5"/></svg>
+    </button>
+  </div>
+</div>
 
 <footer class="m-4 bg-white rounded-lg shadow dark:bg-slate-900">
   <div class="w-full max-w-screen-xl p-4 mx-auto md:flex md:items-center md:justify-between">
@@ -127,7 +159,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script src="{% static 'js/animation-gsap.js' %}"></script>
-<script src="{% static 'js/chatbot.js' %}"></script>
+<script src="{% static 'js/fonts.js' %}"></script>
 
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
