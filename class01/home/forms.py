@@ -36,9 +36,9 @@ class FiltroTopico(forms.Form):
     nivel_experiencia = forms.ChoiceField(
         choices=[
             ('', 'Selecione um nível de experiência'),
-            ('iniciante', 'Iniciante'),
-            ('intermediario', 'Intermediário'),
-            ('avancado', 'Avançado')
+            ('Iniciante', 'Iniciante'),
+            ('Intermediário', 'Intermediário'),
+            ('Avançado', 'Avançado')
         ],
         required=False,
         widget=forms.Select(attrs={
