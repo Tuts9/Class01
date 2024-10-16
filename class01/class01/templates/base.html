@@ -16,87 +16,107 @@
     <link rel="shortcut icon" href="{% static 'img/logo.icon1.png' %}" type="image/x-icon">
   </head>
 
-<body class="leading-normal tracking-normal bg-slate-50 dark:bg-slate-800 font-poppins">
+<body class="relative w-full h-full leading-normal tracking-normal bg-black font-poppins">
     
+    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+    </div>
+    <div class="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]">
+    </div>
+
   <!-- Navbar -->
-  <nav class="sticky top-0 z-20 w-full border-b border-gray-600 bg-gray-50 dark:bg-gray-900 start-0">
+  <nav class="sticky top-0 z-20 w-full bg-transparent start-0">
     <!-- DIV de todos elementos do navbar -->
     <div class="flex flex-wrap items-center justify-around max-w-screen-xl p-4 mx-auto">
       <!-- Logo Class01 -->
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="{% static 'img/logo.png' %}" class="h-10" alt="Class01 Logo">
-          <span class="self-center text-2xl font-semibold text-gray-900 whitespace-nowrap dark:text-white">Class<span class="text-blue-600">01</span></span>
+          <span class="self-center text-2xl font-semibold text-gray-900 whitespace-nowrap dark:text-white">devStudy.</span>
       </a>
       <!-- Botão de menu mobile -->
-      <div class="flex space-x-3 md:order-2 xs:order-3 md:space-x-0 rtl:space-x-reverse">
+      <div class="flex space-x-3 md:order-1 xs:order-3 md:space-x-0 rtl:space-x-reverse">
           <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
             </svg>
+          </button>
+      </div>
+      
+      <!-- Botões de login e registro -->
+      <div class="hidden md:order-2 md:flex">
+        <div class="flex xs:flex-row">
+          <a href="#">
+              <button type="submit" class="flex flex-row px-3 py-1 text-sm font-medium text-center text-black transition duration-300 bg-white border-2 border-black rounded-lg md:ml-0 hover:text-white dark:border-white dark:bg-white dark:hover:text-white ">Login
+              </button>
+          </a>
+          <a href="#">
+              <button type="submit" class="flex flex-row px-3 py-1 ml-6 text-sm font-medium text-center text-white transition duration-300 bg-blue-700 border-2 rounded-lg hover:bg-white hover:border-blue-600 hover:text-blue-600 dark:bg-black dark:hover:bg-white dark:hover:text-blue-700 dark:border-white dark:hover:border-white ">Register
+              </button>
+          </a>
+        </div>
+      </div>
+      
+      <!-- DIV com a barra de pesquisa -->
+      <div class="items-center justify-between hidden w-full mx-auto md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <div class="relative md:block">
+          <form method="get" action="{% url 'all_topics' %}">
+              <div class="absolute inset-y-0 flex items-center my-auto pointer-events-none start-0 ps-3">
+                <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search icon</span>
+              </div>
+              <input type="text" id="search-navbar" name="search" class="block w-full p-2 mt-1 text-sm text-white placeholder-gray-300 border border-gray-300 rounded-lg bg-gray-950 ps-10" placeholder="Pesquisar...">
+          </form>            
+        </div>
+
+        <!-- Botões de login e registro -->
+        <div class="flex xs:flex-row md:hidden">
+          <a href="#">
+              <button type="submit" class="flex flex-row px-3 py-1 text-sm font-medium text-center text-blue-700 transition duration-300 bg-white border-2 border-blue-600 rounded-lg md:ml-0 hover:bg-blue-600 hover:text-white dark:border-white dark:bg-white dark:hover:border-blue-600 dark:hover:bg-blue-700 dark:hover:text-white ">Login
+              </button>
+          </a>
+          <a href="#">
+              <button type="submit" class="flex flex-row px-3 py-1 ml-6 text-sm font-medium text-center text-white transition duration-300 bg-blue-700 border-2 rounded-lg hover:bg-white hover:border-blue-600 hover:text-blue-600 dark:bg-blue-700 dark:hover:bg-white dark:hover:text-blue-700 dark:border-blue-600 dark:hover:border-white ">Register
+              </button>
+          </a>
+        </div>
+
+        <!-- Botão de perfil de usuário -->
+        <div class="md:hidden">
+          <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+          <span class="sr-only">Open user menu</span>
+          <img class="w-8 h-8 rounded-full" src="{% static 'img/logo.png' %}" alt="user photo">
         </button>
+        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+          <div class="px-4 py-3">
+            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+            <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+          </div>
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      
       </div>
-      <!-- Botão de tema -->
-      <div class="md:order-3">
-        <button onclick="document.documentElement.classList.toggle('dark')"
-          class="w-12 h-12 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-          <svg class="block fill-violet-700 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <svg class="hidden fill-yellow-500 dark:block" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  fill-rule="evenodd" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-      </div>
-      <!-- DIV de todos os links do navbar -->
-      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul class="flex flex-col items-center p-4 mt-4 font-medium border rounded-lg md:p-0 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
-          <li>
-            <a href="/#section1" class="block px-3 py-2 text-gray-900 rounded dark:text-white nav-link hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-600 md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
-          </li>
-          <li>
-            <a href="/#section2" class="block px-3 py-2 text-gray-900 rounded dark:text-white nav-link hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-600 md:dark:hover:bg-transparent dark:border-gray-700">Topics</a>
-          </li>
-          <li>
-            <a href="/#section3" class="block px-3 py-2 text-gray-900 rounded dark:text-white nav-link hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-600 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-          </li>
-          <li>
-            <a href="/#section4" class="block px-3 py-2 text-gray-900 rounded dark:text-white nav-link hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-600 md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-          </li>
-        </ul>
-      </div>
+
     </div>
   </nav>
 
   <!-- Seção principal do site -->
   <main>{% block content %} {% endblock %}</main>
 
-  <!-- component -->
-  <div class = "fixed bottom-0 right-0 flex items-end justify-end w-24 h-24 p-2 group ">
-    <div class = "absolute z-50 flex items-center justify-center p-3 text-white rounded-full shadow-xl bg-gradient-to-r from-cyan-500 to-blue-800 ">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:rotate-90   transition-all duration-[0.6s]">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.104"></g><g id="SVGRepo_iconCarrier"> <path d="M14 7C14 8.10457 13.1046 9 12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7Z" stroke="#ffffff" stroke-width="1.5"></path> <path d="M18 10C18 10 14.4627 11.5 12 11.5C9.53727 11.5 6 10 6 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M12 12V13.4522M12 13.4522C12 14.0275 12.1654 14.5906 12.4765 15.0745L15 19M12 13.4522C12 14.0275 11.8346 14.5906 11.5235 15.0745L9 19" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-      </svg>
-  </div>
-  <!-- button 1 -->
-  <div class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2 hover:p-3 bg-blue-500 hover:bg-blue-600  text-white">
-    <button title="Monocromático" class="p-2 text-white bg-transparent rounded-lg" onclick="document.documentElement.classList.toggle('grayscale')">
-      <svg fill="#fafafa" viewBox="0 0 24 24" class="w-6" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"  stroke="#fafafa"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-        <path d="M21.71,20.29l-18-18A1,1,0,0,0,2.29,3.71l4,4a12.46,12.46,0,0,0-2,6.57A7.76,7.76,0,0,0,12,22a7.64,7.64,0,0,0,5.87-2.71l2.42,2.42a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM12,20a5.76,5.76,0,0,1-5.75-5.75A10.3,10.3,0,0,1,7.72,9.14l8.74,8.73A5.67,5.67,0,0,1,12,20ZM10.85,5.24c.45-.42.85-.75,1.15-1,1.43,1.12,5.13,4.43,5.68,8.88a1,1,0,0,0,1,.88h.12a1,1,0,0,0,.87-1.11c-.78-6.43-6.85-10.55-7.1-10.72a1,1,0,0,0-1.12,0A18.73,18.73,0,0,0,9.49,3.78a1,1,0,0,0,1.36,1.46Z"></path></g>
-      </svg>
-    </button>
-  </div>
-  <!-- button 2 -->
-  <div title="Contraste" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-32  flex  p-2 hover:p-3 bg-blue-500 hover:bg-blue-600  text-white">
-    <button class="p-2 text-white bg-transparent rounded-lg" onclick="document.documentElement.classList.toggle('invert')">
-      <svg viewBox="0 0 15 15" fill="none" class="w-6" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-        <path d="M0.5 12.5L0.146447 12.1465L0 12.2929V12.5H0.5ZM8 5L8.35355 4.64645C8.15829 4.45119 7.84171 4.45119 7.64645 4.64645L8 5ZM10 7L10.3536 7.35356C10.5488 7.1583 10.5488 6.84171 10.3536 6.64645L10 7ZM2.5 14.5V15H2.70711L2.85355 14.8536L2.5 14.5ZM0.5 14.5H0C0 14.7761 0.223858 15 0.5 15L0.5 14.5ZM7.5 4.5L7.14645 4.14645L6.79289 4.5L7.14645 4.85356L7.5 4.5ZM10.5858 1.41422L10.2322 1.06066L10.5858 1.41422ZM13.4142 1.41422L13.0607 1.76777L13.0607 1.76777L13.4142 1.41422ZM13.5858 1.58579L13.9393 1.23224L13.9393 1.23224L13.5858 1.58579ZM13.5858 4.41422L13.2322 4.06066L13.5858 4.41422ZM10.5 7.5L10.1464 7.85356L10.5 8.20711L10.8536 7.85356L10.5 7.5ZM0.853553 12.8536L8.35355 5.35356L7.64645 4.64645L0.146447 12.1465L0.853553 12.8536ZM7.64645 5.35356L9.64645 7.35356L10.3536 6.64645L8.35355 4.64645L7.64645 5.35356ZM9.64645 6.64645L2.14645 14.1465L2.85355 14.8536L10.3536 7.35356L9.64645 6.64645ZM2.5 14H0.5V15H2.5V14ZM1 14.5V12.5H0V14.5H1ZM6.14645 3.85356L11.1464 8.85356L11.8536 8.14645L6.85355 3.14645L6.14645 3.85356ZM7.85355 4.85356L10.9393 1.76777L10.2322 1.06066L7.14645 4.14645L7.85355 4.85356ZM13.0607 1.76777L13.2322 1.93934L13.9393 1.23224L13.7678 1.06066L13.0607 1.76777ZM13.2322 4.06066L10.1464 7.14645L10.8536 7.85356L13.9393 4.76777L13.2322 4.06066ZM10.8536 7.14645L7.85355 4.14645L7.14645 4.85356L10.1464 7.85356L10.8536 7.14645ZM13.2322 1.93934C13.818 2.52513 13.818 3.47488 13.2322 4.06066L13.9393 4.76777C14.9157 3.79146 14.9156 2.20855 13.9393 1.23224L13.2322 1.93934ZM10.9393 1.76777C11.5251 1.18198 12.4749 1.18198 13.0607 1.76777L13.7678 1.06066C12.7915 0.0843534 11.2085 0.0843515 10.2322 1.06066L10.9393 1.76777Z" fill="#000000"></path> </g>
-      </svg>
-    </button>
-    </div>
-  </div>
 
   <!-- Rodapé -->
   <footer class="m-4 bg-white rounded-lg shadow dark:bg-slate-900">
@@ -114,17 +134,6 @@
   <script src="{% static 'js/animation-gsap.js' %}"></script>
   <script src="{% static 'js/chatbot.js' %}"></script>
   <script src="{% static 'js/fonts.js' %}"></script>
-
-  <!-- Ferramenta de acessibilidade -->
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
 
 </body>
 </html>
