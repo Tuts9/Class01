@@ -45,7 +45,7 @@
     ### Acesse a pasta com o terminal e crie um ambiente virtual
 
     ```bash
-    python -m venv .venv
+    uv venv .venv --python 3.12
     ```
 
     ### Ative seu ambiente virtual
@@ -57,7 +57,7 @@
     ### Instale todas as dependências com o requirements.txt
 
     ```bash
-    pip install -r requirements.txt
+    uv pip install -r requirements.txt
     ```
 
     ### Após a instalação entre na pasta seguinte
