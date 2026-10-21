@@ -11,6 +11,9 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+# Keep built Tailwind CSS for local demo and Render (no Node on build by default)
+!class01/theme/static/css/dist/
+!class01/theme/static/css/dist/**
 downloads/
 eggs/
 .eggs/

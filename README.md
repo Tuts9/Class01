@@ -43,6 +43,14 @@ python manage.py tailwind build
 python manage.py runserver
 ```
 
+Em desenvolvimento no Windows, use o script que **sempre rebuilda o Tailwind** antes de subir o server:
+
+```powershell
+.\scripts\dev.ps1
+```
+
+Sempre que criar templates/classes novas, rode `python manage.py tailwind build` (ou o script acima). O CSS antigo em `theme/static/css/dist/` não inclui utilitários novos até o rebuild.
+
 Abra http://127.0.0.1:8000/
 
 ## Demo / deploy (Render)
