@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: class01
+    runtime: python
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: cd class01 && gunicorn class01.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: class01-db
+          property: connectionString
+
+databases:
+  - name: class01-db
+    plan: free

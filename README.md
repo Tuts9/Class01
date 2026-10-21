@@ -1,119 +1,86 @@
-# Projeto Integrador - Class01
+# Class01 — Trilhas para quem está começando a programar
 
-## Introdução
+Case de portfólio: plataforma em português que ajuda iniciantes a **escolher uma trilha**, explorar tópicos e **acompanhar o progresso**.
 
-- ### Visão geral do projeto
+**Problema:** quem chega na área se perde em tutoriais aleatórios.  
+**Solução:** roadmaps guiados (Fundamentos + Frontend), biblioteca de tópicos/ferramentas e conta com progresso salvo.
 
-    O Class01 é uma aplicação que foi desenvolvido com a principal ideia de ajudar as pessoas que querem começar na área de programação e ainda não sabem como fazer para dar o primeiro passo. Dentro do site será possível encontrar tópicos desde diagramas até linguagens de programação e suas principais bibliotecas.
+## Stack
 
-- ### Funcionalidades principais
+- Python 3.12 + **Django 4.2**
+- **Tailwind CSS** (django-tailwind)
+- SQLite (local) / PostgreSQL (produção via `DATABASE_URL`)
+- WhiteNoise + Gunicorn
 
-    O Class01 tem como funcionalidade principal entregar uma breve descrição sobre cada tópico e redireciona o usuário para uma página especifíca onde ele pode se aprofundar no assunto.
-    
-    Logo em seguida são apresentadas algumas das 3 principais ferramentas daquele tópico e também com um botão de redirecionamento para a página principal daquela ferramenta onde o usuário poderá saber mais sobre a ferramenta e até mesmo começar a usá-la.
+## Funcionalidades
 
-- ### Tecnologias utilizadas
+- Trilhas com etapas ordenadas (roadmap)
+- Conta (registro/login) e marcação de progresso
+- Catálogo de tópicos com busca e filtros
+- Ferramentas recomendadas por tópico
+- Formulário de suporte + acessibilidade (VLibras, contraste, fonte)
 
-    Nesse projeto as principais tecnologias utizadas foram Django para a construção de todo o backend e Tailwind CSS para criação das estilizações das páginas.
+## Como rodar localmente
 
-    Todas as linguagens que estão sendo utilizadas são: HTML, CSS, JavaScript, Python
+```bash
+git clone https://github.com/Tuts9/Class01.git
+cd Class01
 
-    Também foram utilizados alguns frameworks, como: Django, e Tailwind CSS.
+uv venv .venv --python 3.12
+# Windows:
+.venv\Scripts\activate
+# Linux/macOS:
+# source .venv/bin/activate
 
-- ### Público alvo
+uv pip install -r requirements.txt
+copy .env.example .env   # ou cp .env.example .env
 
-    Os principais usuários do Class01 serão os iniciantes na área de programação que ainda não sabem por onde começar e querem aprender o básico e ter um guia inicial.
+cd class01
+python manage.py migrate
+python manage.py seed_demo
+python manage.py tailwind install
+python manage.py tailwind build
+python manage.py runserver
+```
 
-## Instalação e configuração (Clonando o repositório do Github)
+Abra http://127.0.0.1:8000/
 
-- ## Requisitos
+## Demo / deploy (Render)
 
-    Certifique-se de que tenha os seguintes requisitos instalados em seu sistema
-    
-    - Python (versões a partir da 3.x)
-    - Node.js (versões a partir da 18.x)
-    - Outras dependências listadas no `requirements.txt`
+Arquivos prontos: `render.yaml`, `build.sh`, `Procfile`, `runtime.txt`.
 
-- ## Instalação
+1. Faça push deste repositório para o GitHub
+2. Em [Render Dashboard](https://dashboard.render.com) → **New** → **Blueprint**
+3. Selecione o repo e confirme o `render.yaml` (web + Postgres free)
+4. Após o primeiro deploy, ajuste as env vars:
+   - `ALLOWED_HOSTS` = `seu-servico.onrender.com`
+   - `CSRF_TRUSTED_ORIGINS` = `https://seu-servico.onrender.com`
+5. O `build.sh` já roda `migrate`, `collectstatic` e `seed_demo`
 
-    ### Clone o repositório
+Sem conta Render no ambiente de CI local, o deploy precisa ser disparado uma vez pelo painel (ou Deploy Hook).
 
-    ```bash
-    git clone https://github.com/Tuts9/Projeto-Integrador.git
-    ```
+## Estrutura
 
-    ### Acesse a pasta com o terminal e crie um ambiente virtual
+```
+Class01/
+├── class01/           # projeto Django (manage.py)
+│   ├── home/          # app principal (tópicos, trilhas, auth)
+│   ├── theme/         # Tailwind
+│   └── media/         # uploads
+├── assets-p.i/        # assets de conteúdo (seed)
+├── requirements.txt
+├── render.yaml
+└── build.sh
+```
 
-    ```bash
-    uv venv .venv --python 3.12
-    ```
+## Comandos úteis
 
-    ### Ative seu ambiente virtual
+```bash
+python manage.py seed_demo   # trilhas + ferramentas demo
+python manage.py test home   # testes
+python manage.py createsuperuser
+```
 
-    ```bash
-    .venv\Scripts\activate
-    ```
+## Autor
 
-    ### Instale todas as dependências com o requirements.txt
-
-    ```bash
-    uv pip install -r requirements.txt
-    ```
-
-    ### Após a instalação entre na pasta seguinte
-
-    ```bash
-    cd class01
-    ```
-
-    ### Em seguida realize as migrações para configurar o banco de dados
-
-    ```bash
-    python manage.py migrate
-    ```
-
-    ### Instale as dependências do Django-Tailwind com o seguinte comando:
-    
-    ```bash
-    python manage.py tailwind install
-    ```
-
-    ### Agora construa toda a estilização do site usando o Tailwind CSS
-
-    ```bash
-    python manage.py tailwind build
-    ```
-
-    ### Agora seu projeto está pronto para ser visualizado, só falta iniciar o servidor local
-
-    ```bash
-    python manage.py runserver
-    ```
-
-## Estrutura do projeto
-
-### Arquitetura MVT
-
-- No projeto Class01 foi utilizado a arquitetura MVT (Models, Views, Templates)
-    - Models: Mapeamento do banco de dados para o projeto, usando a ORM do Django para facilitar o uso do banco de dados da preferência do desenvolvedor.
-    - Views: Lógica de negócio. É aqui que determinamos o que irá acontecer em nosso projeto, onde acontece a conexão das funções, envios de formulários e apresentação de dados nas interfaces, tudo estando linkado com as urls referentes. Essa é a parte do lado do servidor
-    - Templates: Pasta do projeto em que ficam os arquivos HTML que renderizam toda a visualização para os usuários. Este é a parte do lado do cliente.
-
-### Arquivos estáticos
-
-- Também existe a pasta dos arquivos estáticos, onde ficam todos os arquivos que são importados nas páginas como imagens, arquivos de estilização e arquivos de scripts.
-
-### Framework CSS (opcional)
-
-- No caso de projetos usando Tailwind CSS, caso esteja usando o módulo de Python `django-tailwind` também será possível encontrar uma pasta chamada `themes` que é onde ficam todos os arquivos de configuração do Tailwind CSS que por sua vez usa também o `Node.js`.
-
-## Configuração Django
-
-### URL's
-
-As urls do projeto Django servem para conectar os links e retornar a visualização referente à aquela `URL`, dependendo do projeto se ele tiver vários apps as urls podem serem maiores e para facilitar na busca do usuário e identificação em possíveis manutenções dos desenvolvedores.
-
-
-
-
-## Desenvolvido por: Arthur Rodrigues
+Arthur Rodrigues — projeto originado no Projeto Integrador (ADS), reativado como case de portfólio com trilhas e progresso.

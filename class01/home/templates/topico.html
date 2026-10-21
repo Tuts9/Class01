@@ -92,14 +92,6 @@
                             <h3 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">{{ ferramenta.nome_ferramenta }}</h3>
                             <img src="{{ ferramenta.imagem_ferramenta.url }}" alt="TensorFlow" class="object-cover w-full h-48 mb-4 rounded-md">
                             <p class="mb-4 text-gray-600 dark:text-gray-300">{{ ferramenta.informacao_ferramenta }}</p>
-                            <div class="mb-4 text-black dark:text-gray-50">
-                                <h4 class="mb-2 font-semibold">Key Features:</h4>
-                                <ul class="space-y-1 list-disc list-inside">
-                                    <li>Easy model building</li>
-                                    <li>Robust ML production anywhere</li>
-                                    <li>Powerful experimentation for research</li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="p-6 pt-0 mt-auto">
                             <a href="{{ ferramenta.link_ferramenta }}" class="block w-full px-4 py-2 font-bold text-center text-white bg-blue-600 rounded hover:bg-blue-700">
@@ -115,19 +107,6 @@
         {% include 'pagination.html' %}
         
         {% include 'socials.html' %}
-
-        <script>
-            const menuBtn = document.getElementById('menu-btn');
-            const sidebar = document.getElementById('drawer-navigation');
-            const closeBtn = document.getElementById('close-btn');
-            menuBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full'); // Toggles the sidebar visibility
-            });
-            
-            closeBtn.addEventListener('click', () => {
-                sidebar.classList.add('-translate-x-full'); // Hides the sidebar
-            });
-        </script>
 
     {% endblock %}
 

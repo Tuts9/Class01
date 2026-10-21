@@ -25,7 +25,7 @@
         
         <div class="hs-tooltip">
           <button type="button" class="flex items-center ml-1 text-lg text-gray-500 hs-tooltip-toggle gap-x-2 hover:text-white focus:outline-none focus:text-gray-800 dark:text-neutral-400 dark:focus:text-neutral-200">
-            <a href="mailto:?subject={{ topico.nome_topic }}&body={{ request.build_absolute_uri }}" target='_blank' title="E-mail">
+            <a href="mailto:?subject={{ current_topic.nome_topico }}&body={{ request.build_absolute_uri }}" target='_blank' title="E-mail">
               <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 size-6" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z"/></svg>
               <span class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity bg-gray-900 rounded shadow-sm opacity-0 hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible dark:bg-black" role="tooltip">
                 E-mail

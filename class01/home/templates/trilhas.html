@@ -1,0 +1,46 @@
+{% extends 'base-topics.html' %}
+{% load static %}
+
+{% block title %} — Trilhas {% endblock %}
+
+{% block content %}
+<section class="w-full max-w-5xl px-4 py-12 mx-auto">
+    <div class="mb-10 text-center">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Trilhas de aprendizado</h1>
+        <p class="mt-3 text-lg text-gray-600 dark:text-gray-300">
+            Escolha um caminho, avance etapa a etapa e acompanhe seu progresso.
+        </p>
+        {% if not user.is_authenticated %}
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            <a href="{% url 'registro' %}" class="text-blue-600 hover:underline">Crie uma conta</a>
+            para salvar seu progresso.
+        </p>
+        {% endif %}
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+        {% for item in trilhas_data %}
+        <a href="{% url 'trilha_detail' item.trilha.slug %}"
+           class="block p-6 transition bg-white border border-gray-200 rounded-2xl dark:bg-gray-800 dark:border-gray-700 hover:border-blue-500 hover:shadow-lg">
+            <p class="text-xs font-semibold tracking-wide text-blue-600 uppercase">{{ item.trilha.nivel_alvo }}</p>
+            <h2 class="mt-1 text-2xl font-bold text-gray-900 dark:text-white">{{ item.trilha.nome }}</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-300">{{ item.trilha.descricao }}</p>
+            <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">{{ item.trilha.total_etapas }} etapas</p>
+            {% if item.progresso != None %}
+            <div class="mt-5">
+                <div class="flex justify-between mb-1 text-xs text-gray-500 dark:text-gray-400">
+                    <span>Progresso</span>
+                    <span>{{ item.progresso }}%</span>
+                </div>
+                <div class="w-full h-2 bg-gray-200 rounded-full dark:bg-gray-700">
+                    <div class="h-2 bg-blue-600 rounded-full" style="width: {{ item.progresso }}%"></div>
+                </div>
+            </div>
+            {% endif %}
+        </a>
+        {% empty %}
+        <p class="text-gray-600 dark:text-gray-300 md:col-span-2">Nenhuma trilha disponível ainda.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
